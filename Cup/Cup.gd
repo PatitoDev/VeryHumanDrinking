@@ -1,20 +1,21 @@
 extends RigidBody2D
 
-var captured: bool = true
+var _target: Node2D = null;
 
 func _ready() -> void:
-	position = get_global_mouse_position()
-	lock_rotation = true;
+	lock_rotation = false;
+
+func setTarget(target: Node2D):
+	lock_rotation = target != null;
+	_target = target;
 
 func _physics_process(delta):
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):# and $Timer.time_left == 0:
-		captured = not captured
-		#$Timer.start()
-	if captured:
+	if _target:
 		var I = 5000*mass#infuence
 		var S = 20#stiffness 
-		var P = get_global_mouse_position() - global_transform.origin
+		var P = _target.global_position - global_transform.origin
 		var M = mass
 		var V = linear_velocity
 		var impulse = (I*P) - (S*M*V)
 		apply_central_impulse(impulse * delta)
+		rotation_degrees = _target.rotation_degrees;

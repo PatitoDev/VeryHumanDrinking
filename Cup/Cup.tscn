@@ -1,16 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://uieckdtouw1t"]
+[gd_scene load_steps=6 format=3 uid="uid://uieckdtouw1t"]
 
 [ext_resource type="Script" path="res://Cup/Cup.gd" id="1_4rkuo"]
+[ext_resource type="Texture2D" uid="uid://cy67x8ljpoj0e" path="res://Images/cup.png" id="2_fkv2d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4iak"]
-size = Vector2(5, 39.9997)
+size = Vector2(13.5, 99.9998)
 
-[node name="Cup" type="RigidBody2D" groups=["grabbable"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uipd4"]
+size = Vector2(12.6112, 71.0272)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8r8g0"]
+size = Vector2(72, 107.5)
+
+[node name="Cup" type="RigidBody2D" groups=["cup", "grabbable"]]
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_4rkuo")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -20.0
 offset_top = -26.0
 offset_right = 20.0
@@ -18,14 +26,27 @@ offset_bottom = 24.0
 color = Color(1, 1, 1, 0.372549)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-17.5, -1)
+position = Vector2(-29, -13)
 shape = SubResource("RectangleShape2D_i4iak")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(18, -1)
+position = Vector2(28.75, -13.0001)
 shape = SubResource("RectangleShape2D_i4iak")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(0.00396705, 21)
+position = Vector2(-0.488322, 38.5537)
 rotation = 1.57476
-shape = SubResource("RectangleShape2D_i4iak")
+shape = SubResource("RectangleShape2D_uipd4")
+
+[node name="GrabArea" type="Area2D" parent="." groups=["grabbable"]]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
+position = Vector2(0, -9.25)
+shape = SubResource("RectangleShape2D_8r8g0")
+
+[node name="Cup" type="Sprite2D" parent="."]
+position = Vector2(0, -11)
+scale = Vector2(4, 4)
+texture = ExtResource("2_fkv2d")

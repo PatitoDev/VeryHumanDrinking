@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://or84j01ah6c2"]
+[gd_scene load_steps=5 format=3 uid="uid://or84j01ah6c2"]
 
 [ext_resource type="Script" path="res://Faucet/Faucet.gd" id="1_n1wte"]
 [ext_resource type="Texture2D" uid="uid://m762u2jupu7y" path="res://Faucet/part.png" id="2_ll5vd"]
+[ext_resource type="Texture2D" uid="uid://qwnlqisucfve" path="res://Images/fountain.png" id="3_wndde"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ygbs3"]
+size = Vector2(320.5, 81)
 
 [node name="Faucet" type="Node2D"]
 script = ExtResource("1_n1wte")
@@ -9,6 +13,7 @@ tex = ExtResource("2_ll5vd")
 spawnRad = 10.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -19.0
 offset_top = -43.0
 offset_right = 19.0
@@ -17,3 +22,14 @@ color = Color(0.737255, 0.733333, 0.713726, 1)
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, 35)
+
+[node name="Fountain" type="Sprite2D" parent="."]
+position = Vector2(-119, 58)
+scale = Vector2(4, 4)
+texture = ExtResource("3_wndde")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-37.75, 324.5)
+shape = SubResource("RectangleShape2D_ygbs3")
