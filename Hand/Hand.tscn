@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://b22ucm4rdhg5r"]
+
+[ext_resource type="Script" path="res://Hand/Hand.gd" id="1_oijfh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w50aq"]
+size = Vector2(43, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns82g"]
+size = Vector2(59, 46)
+
+[node name="Hand" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_oijfh")
+
+[node name="HandPivot" type="Node2D" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="HandPivot"]
+offset_left = -21.0
+offset_top = -18.7295
+offset_right = 22.0
+offset_bottom = 21.2705
+color = Color(0.709804, 0.6, 0.545098, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="HandPivot"]
+offset_left = 12.0
+offset_top = -5.72946
+offset_right = 134.0
+offset_bottom = 6.27054
+color = Color(0.709804, 0.6, 0.545098, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="HandPivot"]
+offset_left = -37.0
+offset_top = -17.7295
+offset_right = -10.0
+offset_bottom = -8.72946
+color = Color(0.709804, 0.6, 0.545098, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="HandPivot"]
+offset_left = -37.0
+offset_top = -6.72946
+offset_right = -10.0
+offset_bottom = 2.27054
+color = Color(0.709804, 0.6, 0.545098, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="HandPivot"]
+offset_left = -37.0
+offset_top = 3.27054
+offset_right = -10.0
+offset_bottom = 12.2705
+color = Color(0.709804, 0.6, 0.545098, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="HandPivot"]
+offset_left = -37.0
+offset_top = 13.2705
+offset_right = -10.0
+offset_bottom = 21.2705
+color = Color(0.709804, 0.6, 0.545098, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="HandPivot"]
+offset_left = 3.0
+offset_top = -11.7295
+offset_right = 31.0
+offset_bottom = -2.72946
+rotation = -2.69218
+color = Color(0.709804, 0.6, 0.545098, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_w50aq")
+
+[node name="GrabArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
+position = Vector2(-7.5, -2)
+shape = SubResource("RectangleShape2D_ns82g")

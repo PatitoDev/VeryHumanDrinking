@@ -1,0 +1,100 @@
+[gd_scene load_steps=12 format=3 uid="uid://xnxu584c7t7d"]
+
+[ext_resource type="PackedScene" uid="uid://b22ucm4rdhg5r" path="res://Hand/Hand.tscn" id="1_o2vhs"]
+[ext_resource type="PackedScene" uid="uid://uieckdtouw1t" path="res://Cup/Cup.tscn" id="2_4dcgs"]
+[ext_resource type="PackedScene" uid="uid://or84j01ah6c2" path="res://Faucet/Faucet.tscn" id="4_ovpwo"]
+[ext_resource type="Script" path="res://water2Dsimulation/script/camera.gd" id="5_whv7n"]
+[ext_resource type="Shader" path="res://water2Dsimulation/script/waterEffect.gdshader" id="6_inol3"]
+[ext_resource type="Texture2D" uid="uid://bdfcpwmcrcmis" path="res://water2Dsimulation/asset/icon.svg" id="7_jgfpf"]
+
+[sub_resource type="Animation" id="Animation_1wx26"]
+resource_name = "closeHand"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_10lex"]
+_data = {
+"closeHand": SubResource("Animation_1wx26")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xqawv"]
+size = Vector2(367, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gcvnn"]
+shader = ExtResource("6_inol3")
+shader_parameter/TG_COLOR = Color(1, 0, 1, 1)
+shader_parameter/color_detect_threshold = 0.35
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_dlocw"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[node name="Main" type="Node2D"]
+
+[node name="Hand" parent="." instance=ExtResource("1_o2vhs")]
+position = Vector2(603, 319)
+
+[node name="Cup" parent="." instance=ExtResource("2_4dcgs")]
+position = Vector2(297, 260)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_10lex")
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(222, 594)
+shape = SubResource("RectangleShape2D_xqawv")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(47, 417)
+rotation = 1.57452
+shape = SubResource("RectangleShape2D_xqawv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(395, 421)
+rotation = 1.57452
+shape = SubResource("RectangleShape2D_xqawv")
+
+[node name="Faucet" parent="." node_paths=PackedStringArray("vpContainer") instance=ExtResource("4_ovpwo")]
+position = Vector2(560, 106)
+vpContainer = NodePath("../SubViewportContainer")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(567, 314)
+script = ExtResource("5_whv7n")
+target_area = Vector2(1920, 1080)
+
+[node name="waterShader" type="Sprite2D" parent="Camera2D"]
+z_index = 1
+material = SubResource("ShaderMaterial_gcvnn")
+position = Vector2(-0.00012207, 3.99998)
+scale = Vector2(9.25, 9.0625)
+texture = ExtResource("7_jgfpf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 73.0
+offset_top = 132.0
+offset_right = 1225.0
+offset_bottom = 780.0
+texture = SubResource("ViewportTexture_dlocw")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = 4.0
+offset_right = 1147.0
+offset_bottom = 656.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="SubViewportContainer/SubViewport"]
+anchor_mode = 0
