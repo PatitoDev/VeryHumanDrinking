@@ -11,7 +11,7 @@ func _physics_process(delta):
 		captured = not captured
 		#$Timer.start()
 	if captured:
-		var I = 500*mass#infuence
+		var I = 5000*mass#infuence
 		var S = 20#stiffness 
 		var P = get_global_mouse_position() - global_transform.origin
 		var M = mass

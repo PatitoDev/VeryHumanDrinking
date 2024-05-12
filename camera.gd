@@ -11,7 +11,8 @@ func set_camera(size: Vector2):
 	self.zoom = Vector2(dimensions.x/size.x, dimensions.y/size.y)
 
 func _process(_delta):
-	set_camera(target_area)
-	var viewportSize := Vector2(get_viewport().size)
-	$waterShader.scale = (viewportSize / $waterShader.texture.get_size()) / zoom
-	$waterShader.global_rotation = 0
+	return;
+	#set_camera(target_area)
+	#var viewportSize := Vector2(get_viewport().size)
+	#$waterShader.scale = (viewportSize / $waterShader.texture.get_size()) / zoom
+	#$waterShader.global_rotation = 0

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdfcpwmcrcmis"
-path="res://.godot/imported/icon.svg-c0bab497df0cdb19b054c0c04ac5a90a.ctex"
+uid="uid://m762u2jupu7y"
+path="res://.godot/imported/part.png-d5d135a9afd66d7af04480bf5338daac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://water2Dsimulation/asset/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-c0bab497df0cdb19b054c0c04ac5a90a.ctex"]
+source_file="res://Faucet/part.png"
+dest_files=["res://.godot/imported/part.png-d5d135a9afd66d7af04480bf5338daac.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
