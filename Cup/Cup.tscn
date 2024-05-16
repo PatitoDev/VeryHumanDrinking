@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cy67x8ljpoj0e" path="res://Images/cup.png" id="2_fkv2d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i4iak"]
-size = Vector2(13.5, 99.9998)
+size = Vector2(20.75, 99.9998)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uipd4"]
-size = Vector2(12.6112, 71.0272)
+size = Vector2(17.7459, 88.0152)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8r8g0"]
 size = Vector2(72, 107.5)
@@ -26,15 +26,15 @@ offset_bottom = 24.0
 color = Color(1, 1, 1, 0.372549)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-29, -13)
+position = Vector2(-33.375, -13)
 shape = SubResource("RectangleShape2D_i4iak")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(28.75, -13.0001)
+position = Vector2(33.75, -13.0001)
 shape = SubResource("RectangleShape2D_i4iak")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
-position = Vector2(-0.488322, 38.5537)
+position = Vector2(0.00347805, 43.123)
 rotation = 1.57476
 shape = SubResource("RectangleShape2D_uipd4")
 

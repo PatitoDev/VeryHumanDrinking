@@ -3,15 +3,15 @@
 [ext_resource type="Script" path="res://Hand/Hand.gd" id="1_oijfh"]
 [ext_resource type="Texture2D" uid="uid://ch1707gttjfh5" path="res://Images/hand.png" id="2_kovoe"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_w50aq"]
-size = Vector2(43, 40)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns82g"]
 size = Vector2(59, 46)
 
-[node name="Hand" type="CharacterBody2D"]
-collision_layer = 0
-collision_mask = 0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w50aq"]
+size = Vector2(152, 99)
+
+[node name="Hand" type="CharacterBody2D" groups=["hand"]]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_oijfh")
 
 [node name="HandPivot" type="Node2D" parent="."]
@@ -73,10 +73,6 @@ rotation = -2.69218
 color = Color(0.709804, 0.6, 0.545098, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5.5, 1)
-shape = SubResource("RectangleShape2D_w50aq")
-
 [node name="GrabArea" type="Area2D" parent="."]
 position = Vector2(5, 0)
 collision_layer = 2
@@ -91,3 +87,7 @@ position = Vector2(-6, -16)
 scale = Vector2(4, 4)
 texture = ExtResource("2_kovoe")
 hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7, -14.5)
+shape = SubResource("RectangleShape2D_w50aq")
