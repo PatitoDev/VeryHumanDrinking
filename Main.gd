@@ -4,7 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	face.setOpenMouth(false);
-
+	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -12,8 +12,11 @@ func _process(delta):
 
 var waterCount = 0;
 
+func _physics_process(delta):
+	if ($Cup.global_position.y > $WaterDespawnPoint.global_position.y):
+		$Cup.global_position.y = 0;
+
 func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	print(waterCount);
 	waterCount += 1;
 
 @onready var face = $Face

@@ -1,6 +1,8 @@
 extends Node2D
 var objects: Array[Array] = []
 
+@export var despawnPoint: Node2D;
+@onready var handleMarker = $HandleOrigin/HandleMarker
 @onready var grabHandleArea = $HandleOrigin/GrabHandleArea
 @onready var waterFlowTimer = $WaterFlowTimer
 @onready var handleOrigin = $HandleOrigin
@@ -15,7 +17,7 @@ var pointer: bool = true
 var rotationIgnoreThreshold = 180;
 var waterFlow = 0;
 var maxWaterFlow = 270;
-var isGrabbed = false;
+
 
 func _ready() -> void:
 	cir_shape.radius = 8 / 2
@@ -60,19 +62,18 @@ func create_object(pos: Vector2):
 
 	objects.append([object, img])
 
+var initialPositionDifference = null;
+var isGrabbed = false;
+
+func setIsGrabbed(value: bool):
+	isGrabbed = value;
+	var handledDiff = handleOrigin.global_position - handleMarker.global_position;
+	initialPositionDifference = get_global_mouse_position() + handledDiff;
+
 func _physics_process(delta):
-	if (Input.is_action_just_pressed("grab")):
-		var bodies:Array[Node2D] = grabHandleArea.get_overlapping_bodies();
-		for body in bodies:
-			if body.is_in_group('hand'):
-				isGrabbed = true;
-				print('grabbed')
-	
-	if (Input.is_action_just_released('grab') && isGrabbed):
-		isGrabbed = false;
-		
 	if (isGrabbed):
-		var angle = rad_to_deg(get_global_mouse_position().angle_to_point(handleOrigin.global_position)) + 180;
+		var mousePos = get_global_mouse_position();
+		var angle = rad_to_deg(mousePos.angle_to_point(initialPositionDifference)) + 180;
 		setWaterFlow(angle);
 	
 	var index: int = 0
@@ -81,8 +82,7 @@ func _physics_process(delta):
 		var img: RID = pair[1]
 		var trans: Transform2D = PhysicsServer2D.body_get_state(object, PhysicsServer2D.BODY_STATE_TRANSFORM)
 		#trans.origin -= $Marker2D.global_position
-		if trans.origin.y > 1080 - global_position.y: # remove if outside of screen
-			print('deleted')
+		if trans.origin.y > despawnPoint.global_position.y: # remove if below this point
 			objects.remove_at(index)
 			PhysicsServer2D.free_rid(object)
 			RenderingServer.free_rid(img)

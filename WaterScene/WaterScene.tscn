@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv7ebnixy5equ"]
+
+[ext_resource type="Script" path="res://camera.gd" id="1_00uo3"]
+[ext_resource type="Shader" path="res://Shaders/waterEffect.gdshader" id="2_b302a"]
+[ext_resource type="Texture2D" uid="uid://c6864jdumxd2d" path="res://icon.svg" id="3_l0fgh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kerwl"]
+shader = ExtResource("2_b302a")
+shader_parameter/TG_COLOR = Color(0, 0, 0.545098, 1)
+shader_parameter/color_detect_threshold = 0.35
+
+[node name="WaterScene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1742, 8)
+anchor_mode = 0
+script = ExtResource("1_00uo3")
+
+[node name="waterShader" type="Sprite2D" parent="Camera2D"]
+z_index = 1
+material = SubResource("ShaderMaterial_kerwl")
+scale = Vector2(10, 10)
+texture = ExtResource("3_l0fgh")
+centered = false

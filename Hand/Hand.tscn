@@ -1,88 +1,325 @@
-[gd_scene load_steps=5 format=3 uid="uid://b22ucm4rdhg5r"]
+[gd_scene load_steps=15 format=3 uid="uid://b22ucm4rdhg5r"]
 
 [ext_resource type="Script" path="res://Hand/Hand.gd" id="1_oijfh"]
 [ext_resource type="Texture2D" uid="uid://ch1707gttjfh5" path="res://Images/hand.png" id="2_kovoe"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns82g"]
-size = Vector2(59, 46)
+[ext_resource type="Texture2D" uid="uid://dg32k70stmaao" path="res://Images/armhand.png" id="3_517qm"]
+[ext_resource type="Texture2D" uid="uid://dt6jb7wu4586h" path="res://Images/arm.png" id="4_yrx5q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w50aq"]
 size = Vector2(152, 99)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ns82g"]
+size = Vector2(135, 90)
+
+[sub_resource type="Animation" id="Animation_iqw28"]
+resource_name = "L"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmPivot/Hand:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmPivot/HandCenter:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-144, 71), Vector2(-154, 109)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmPivot/HandCenter:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.334659, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_mi1mu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmPivot/Hand:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmPivot/HandCenter:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-154, 109)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmPivot/HandCenter:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.764123]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ArmPivot/Hand:frame_coords")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(4, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l0ldi"]
+resource_name = "LT"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmPivot/Hand:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmPivot/HandCenter:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-90, 32)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmPivot/HandCenter:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.764123]
+}
+
+[sub_resource type="Animation" id="Animation_pfhl3"]
+resource_name = "T"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmPivot/Hand:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmPivot/HandCenter:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmPivot/HandCenter:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ksxsc"]
+resource_name = "RT"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmPivot/Hand:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(4, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmPivot/HandCenter:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.48496]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmPivot/HandCenter:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(97, 28)]
+}
+
+[sub_resource type="Animation" id="Animation_mqnq1"]
+resource_name = "R"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmPivot/Hand:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [5, 6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmPivot/HandCenter:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.62567, 3.14159]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmPivot/HandCenter:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(129, 75), Vector2(137, 110)]
+}
+
+[sub_resource type="Animation" id="Animation_foovj"]
+resource_name = "Hold"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmPivot/Hand:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmPivot/HandCenter:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmPivot/HandCenter:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jn425"]
+_data = {
+"Hold": SubResource("Animation_foovj"),
+"L": SubResource("Animation_iqw28"),
+"LT": SubResource("Animation_l0ldi"),
+"R": SubResource("Animation_mqnq1"),
+"RESET": SubResource("Animation_mi1mu"),
+"RT": SubResource("Animation_ksxsc"),
+"T": SubResource("Animation_pfhl3")
+}
 
 [node name="Hand" type="CharacterBody2D" groups=["hand"]]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_oijfh")
 
-[node name="HandPivot" type="Node2D" parent="."]
-position = Vector2(5, 0)
-
-[node name="ColorRect" type="ColorRect" parent="HandPivot"]
-offset_left = -21.0
-offset_top = -18.7295
-offset_right = 22.0
-offset_bottom = 21.2705
-color = Color(0.709804, 0.6, 0.545098, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect2" type="ColorRect" parent="HandPivot"]
-offset_left = 12.0
-offset_top = -5.72946
-offset_right = 134.0
-offset_bottom = 6.27054
-color = Color(0.709804, 0.6, 0.545098, 1)
-
-[node name="ColorRect3" type="ColorRect" parent="HandPivot"]
-offset_left = -37.0
-offset_top = -17.7295
-offset_right = -10.0
-offset_bottom = -8.72946
-color = Color(0.709804, 0.6, 0.545098, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect4" type="ColorRect" parent="HandPivot"]
-offset_left = -37.0
-offset_top = -6.72946
-offset_right = -10.0
-offset_bottom = 2.27054
-color = Color(0.709804, 0.6, 0.545098, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect5" type="ColorRect" parent="HandPivot"]
-offset_left = -37.0
-offset_top = 3.27054
-offset_right = -10.0
-offset_bottom = 12.2705
-color = Color(0.709804, 0.6, 0.545098, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect6" type="ColorRect" parent="HandPivot"]
-offset_left = -37.0
-offset_top = 13.2705
-offset_right = -10.0
-offset_bottom = 21.2705
-color = Color(0.709804, 0.6, 0.545098, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect7" type="ColorRect" parent="HandPivot"]
-offset_left = 3.0
-offset_top = -11.7295
-offset_right = 31.0
-offset_bottom = -2.72946
-rotation = -2.69218
-color = Color(0.709804, 0.6, 0.545098, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="GrabArea" type="Area2D" parent="."]
-position = Vector2(5, 0)
-collision_layer = 2
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
-position = Vector2(-7.5, -2)
-shape = SubResource("RectangleShape2D_ns82g")
-
 [node name="Hand" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-6, -16)
 scale = Vector2(4, 4)
 texture = ExtResource("2_kovoe")
@@ -91,3 +328,36 @@ hframes = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-7, -14.5)
 shape = SubResource("RectangleShape2D_w50aq")
+
+[node name="ArmPivot" type="Node2D" parent="."]
+
+[node name="Hand" type="Sprite2D" parent="ArmPivot"]
+position = Vector2(-4, 226)
+scale = Vector2(4, 4)
+texture = ExtResource("3_517qm")
+hframes = 7
+vframes = 2
+frame = 4
+
+[node name="HandCenter" type="Marker2D" parent="ArmPivot"]
+position = Vector2(-154, 109)
+rotation = 0.764123
+
+[node name="GrabArea" type="Area2D" parent="ArmPivot/HandCenter"]
+position = Vector2(6, -5)
+collision_layer = 6
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArmPivot/HandCenter/GrabArea"]
+position = Vector2(-27.5, -8)
+shape = SubResource("RectangleShape2D_ns82g")
+
+[node name="Arm" type="Sprite2D" parent="ArmPivot"]
+position = Vector2(2, 1296)
+scale = Vector2(4, 166.222)
+texture = ExtResource("4_yrx5q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jn425")
+}
