@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3 uid="uid://bp58g80j8rwvv"]
+
+[ext_resource type="Script" path="res://FlowControlPanel/FlowControlPanel.gd" id="1_3pu7j"]
+[ext_resource type="Texture2D" uid="uid://dhrdnbh277jr" path="res://Images/fountainFlowPanel.png" id="1_5e8np"]
+[ext_resource type="Texture2D" uid="uid://chydo442eivha" path="res://Images/handle.png" id="2_rwc1j"]
+[ext_resource type="Texture2D" uid="uid://cxj8b7m8h7qu5" path="res://Images/pointer.png" id="5_4d47a"]
+[ext_resource type="PackedScene" uid="uid://rw1js267fy5w" path="res://CounterDigit/CounterDigit.tscn" id="6_umfvs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0low"]
+size = Vector2(89.9935, 31.0189)
+
+[node name="FlowControlPanel" type="Node2D"]
+script = ExtResource("1_3pu7j")
+
+[node name="FountainFlowPanel" type="Sprite2D" parent="."]
+position = Vector2(-41, -304)
+scale = Vector2(4, 4)
+texture = ExtResource("1_5e8np")
+centered = false
+
+[node name="HandleOrigin" type="Node2D" parent="."]
+position = Vector2(58, 66)
+rotation = -0.000210541
+
+[node name="Handle" type="Sprite2D" parent="HandleOrigin"]
+position = Vector2(28, 0)
+scale = Vector2(4, 4)
+texture = ExtResource("2_rwc1j")
+
+[node name="GrabHandleArea" type="Area2D" parent="HandleOrigin" groups=["hooldable"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HandleOrigin/GrabHandleArea"]
+position = Vector2(27.9999, 0.505898)
+shape = SubResource("RectangleShape2D_s0low")
+
+[node name="HandleMarker" type="Marker2D" parent="HandleOrigin"]
+position = Vector2(32, 0.00673731)
+
+[node name="WaterFlowTimer" type="Timer" parent="."]
+
+[node name="Counter" type="Node2D" parent="."]
+
+[node name="FirstDigit" parent="Counter" instance=ExtResource("6_umfvs")]
+position = Vector2(95, -168)
+
+[node name="SecondDigit" parent="Counter" instance=ExtResource("6_umfvs")]
+position = Vector2(71, -168)
+
+[node name="ThirdDigit" parent="Counter" instance=ExtResource("6_umfvs")]
+position = Vector2(47, -168)
+
+[node name="FourthDigit" parent="Counter" instance=ExtResource("6_umfvs")]
+position = Vector2(23, -168)
+
+[node name="FifthDigit" parent="Counter" instance=ExtResource("6_umfvs")]
+position = Vector2(-1, -168)
+
+[node name="Pointer" type="Node2D" parent="."]
+position = Vector2(18, -115)
+
+[node name="Pointer2" type="Sprite2D" parent="Pointer"]
+position = Vector2(0, -2)
+scale = Vector2(4, 4)
+texture = ExtResource("5_4d47a")
+
+[node name="Pointer2" type="Node2D" parent="."]
+position = Vector2(58, -92)
+rotation = 1.5708
+
+[node name="Pointer2" type="Sprite2D" parent="Pointer2"]
+position = Vector2(0, -2)
+scale = Vector2(4, 4)
+texture = ExtResource("5_4d47a")
+
+[node name="Pointer3" type="Node2D" parent="."]
+position = Vector2(95, -116)
+rotation = -3.14159
+
+[node name="Pointer2" type="Sprite2D" parent="Pointer3"]
+position = Vector2(0, -2)
+scale = Vector2(4, 4)
+texture = ExtResource("5_4d47a")
+
+[node name="PointerTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="PointerTimer2" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="PointerTimer3" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="WaterFlowTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="PointerTimer" to="." method="_on_pointer_timer_timeout"]
+[connection signal="timeout" from="PointerTimer2" to="." method="_on_pointer_timer_2_timeout"]
+[connection signal="timeout" from="PointerTimer3" to="." method="_on_pointer_timer_3_timeout"]

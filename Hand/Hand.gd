@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var animationTree = $AnimationTree
 @onready var armPivot = $ArmPivot
 @onready var animationPlayer = $AnimationPlayer
 @onready var handCenter = $ArmPivot/HandCenter
@@ -10,6 +11,8 @@ var rotationStrength = 5;
 
 var rotationStep = 2;
 var maxRotationSteps = 4;
+
+@onready var stateMachine: AnimationNodeStateMachinePlayback = animationTree['parameters/playback'];
 
 func _ready():
 	updateRotationStep(2);
@@ -34,46 +37,82 @@ func _physics_process(delta):
 			if ((area as Node2D).is_in_group('grabbable')):
 				grabbedCup = area.get_parent();
 				grabbedCup.setTarget(handCenter);
+				return;
 				
 			if ((area as Node2D).is_in_group('hooldable')):
-				rotationStep = 2;
-				animationPlayer.play("Hold")
-				holdedElement = area.get_parent();
-				holdedElement.get_parent().setIsGrabbed(true);
+				grabHandle(area);
+				return;
 
 	if (Input.is_action_just_released("grab")):
 		if holdedElement != null:
 			holdedElement.get_parent().setIsGrabbed(false);
 			holdedElement = null;
 			armPivot.rotation_degrees = 0;
-			updateRotationStep(2);
-			animationPlayer.play("T")
+			rotationStep = 2;
+			stateMachine.travel('2');
 
 		if grabbedCup != null:
 			grabbedCup.setTarget(null);
 			grabbedCup = null;
 	
-	if (holdedElement != null):
+	if (holdedElement != null && !isOnGrabbingAnimation):
 		armPivot.rotation_degrees = holdedElement.rotation_degrees;
 		global_position = holdedElement.get_node('HandleMarker').global_position;
 
-func updateRotationStep(value: int):
-	if (animationPlayer.is_playing()):
-		return;
+var isOnGrabbingAnimation = false;
 
+func grabHandle(area: Node2D):
+	rotationStep = 2;
+	stateMachine.travel('2')
+	isOnGrabbingAnimation = true;
+	
+	holdedElement = area.get_parent();
+	var tween = get_tree().create_tween()
+	
+	#var targetRotation = armPivot.rotation + armPivot.get_angle_to(holdedElement);
+	
+	var targetAngle = holdedElement.rotation_degrees;
+	if (targetAngle > 180):
+		targetAngle =  targetAngle - 360;
+	
+	print(targetAngle)
+	
+	tween.tween_property(armPivot, "rotation_degrees", targetAngle, 0.2)
+	tween.tween_property(self, "global_position", holdedElement.get_node('HandleMarker').global_position, 0.2)
+	
+	tween.connect('finished', onGrabHandleAnimationFinished);
+	# after animation has finished
+
+func onGrabHandleAnimationFinished():
+	stateMachine.travel('Hold')
+	if (holdedElement != null):
+		holdedElement.get_parent().setIsGrabbed(true);
+		isOnGrabbingAnimation = false;
+
+var isAnimating = false;
+
+func updateRotationStep(value: int):
+	if (isAnimating):
+		return;
+	
 	var newValue = clamp(value, 0, maxRotationSteps)
 	if newValue != value:
 		return;
-
+	
+	isAnimating = true;
+	
 	rotationStep = newValue;
 	match rotationStep:
 		0:
-			animationPlayer.play('L');
+			stateMachine.travel('0');
 		1:
-			animationPlayer.play('LT');
+			stateMachine.travel('1');
 		2:
-			animationPlayer.play('T');
+			stateMachine.travel('2');
 		3:
-			animationPlayer.play('RT');
+			stateMachine.travel('3');
 		4:
-			animationPlayer.play('R');
+			stateMachine.travel('4');
+
+func _on_animation_tree_animation_finished(anim_name):
+	isAnimating = anim_name != '0' && anim_name != '1' && anim_name != '2' && anim_name != '3' && anim_name != '4';

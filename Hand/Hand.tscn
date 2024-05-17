@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b22ucm4rdhg5r"]
+[gd_scene load_steps=48 format=3 uid="uid://b22ucm4rdhg5r"]
 
 [ext_resource type="Script" path="res://Hand/Hand.gd" id="1_oijfh"]
 [ext_resource type="Texture2D" uid="uid://ch1707gttjfh5" path="res://Images/hand.png" id="2_kovoe"]
@@ -11,8 +11,8 @@ size = Vector2(152, 99)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns82g"]
 size = Vector2(135, 90)
 
-[sub_resource type="Animation" id="Animation_iqw28"]
-resource_name = "L"
+[sub_resource type="Animation" id="Animation_foovj"]
+resource_name = "Hold"
 length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -21,34 +21,34 @@ tracks/0/path = NodePath("ArmPivot/Hand:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1, 0]
+"values": [9]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ArmPivot/HandCenter:position")
+tracks/1/path = NodePath("ArmPivot/HandCenter:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-144, 71), Vector2(-154, 109)]
+"values": [0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ArmPivot/HandCenter:rotation")
+tracks/2/path = NodePath("ArmPivot/HandCenter:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.334659, 0.0]
+"values": [Vector2(-1, 5)]
 }
 
 [sub_resource type="Animation" id="Animation_mi1mu"]
@@ -89,22 +89,90 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.764123]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ArmPivot/Hand:frame_coords")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+
+[sub_resource type="Animation" id="Animation_iqw28"]
+resource_name = "0"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmPivot/Hand:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(4, 0)]
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmPivot/HandCenter:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-154, 109)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmPivot/HandCenter:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_yfgh2"]
+resource_name = "0.5"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmPivot/Hand:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmPivot/HandCenter:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-144, 71)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmPivot/HandCenter:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.334659]
 }
 
 [sub_resource type="Animation" id="Animation_l0ldi"]
-resource_name = "LT"
-length = 0.1
+resource_name = "1"
+length = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -142,9 +210,9 @@ tracks/2/keys = {
 "values": [0.764123]
 }
 
-[sub_resource type="Animation" id="Animation_pfhl3"]
-resource_name = "T"
-length = 0.1
+[sub_resource type="Animation" id="Animation_wq2cy"]
+resource_name = "1.5"
+length = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -156,6 +224,86 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmPivot/HandCenter:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-90, 32)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmPivot/HandCenter:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.764123]
+}
+
+[sub_resource type="Animation" id="Animation_pfhl3"]
+resource_name = "2"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmPivot/Hand:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmPivot/HandCenter:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5708]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmPivot/HandCenter:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_onble"]
+resource_name = "2.5"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmPivot/Hand:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -183,100 +331,100 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_ksxsc"]
-resource_name = "RT"
-length = 0.1
+resource_name = "3"
+length = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ArmPivot/Hand:frame_coords")
+tracks/0/path = NodePath("ArmPivot/HandCenter:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(4, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ArmPivot/HandCenter:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [2.48496]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ArmPivot/HandCenter:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ArmPivot/HandCenter:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(97, 28)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ArmPivot/Hand:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
 
-[sub_resource type="Animation" id="Animation_mqnq1"]
-resource_name = "R"
-length = 0.1
+[sub_resource type="Animation" id="Animation_wiu78"]
+resource_name = "3.5"
+length = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ArmPivot/Hand:frame")
+tracks/0/path = NodePath("ArmPivot/HandCenter:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [5, 6]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.48496]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ArmPivot/HandCenter:rotation")
+tracks/1/path = NodePath("ArmPivot/HandCenter:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [2.62567, 3.14159]
+"values": [Vector2(97, 28)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ArmPivot/HandCenter:position")
+tracks/2/path = NodePath("ArmPivot/Hand:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(129, 75), Vector2(137, 110)]
-}
-
-[sub_resource type="Animation" id="Animation_foovj"]
-resource_name = "Hold"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ArmPivot/Hand:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [7]
 }
+
+[sub_resource type="Animation" id="Animation_mqnq1"]
+resource_name = "4"
+length = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ArmPivot/Hand:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
@@ -287,7 +435,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [3.14159]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -299,19 +447,133 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 5)]
+"values": [Vector2(137, 110)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jn425"]
 _data = {
+"0": SubResource("Animation_iqw28"),
+"0.5": SubResource("Animation_yfgh2"),
+"1": SubResource("Animation_l0ldi"),
+"1.5": SubResource("Animation_wq2cy"),
+"2": SubResource("Animation_pfhl3"),
+"2.5": SubResource("Animation_onble"),
+"3": SubResource("Animation_ksxsc"),
+"3.5": SubResource("Animation_wiu78"),
+"4": SubResource("Animation_mqnq1"),
 "Hold": SubResource("Animation_foovj"),
-"L": SubResource("Animation_iqw28"),
-"LT": SubResource("Animation_l0ldi"),
-"R": SubResource("Animation_mqnq1"),
-"RESET": SubResource("Animation_mi1mu"),
-"RT": SubResource("Animation_ksxsc"),
-"T": SubResource("Animation_pfhl3")
+"RESET": SubResource("Animation_mi1mu")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6n5hi"]
+animation = &"0"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4hwrv"]
+animation = &"0.5"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bvf72"]
+animation = &"1"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jtgis"]
+animation = &"1.5"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gd2ka"]
+animation = &"2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_51gni"]
+animation = &"2.5"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_frb73"]
+animation = &"3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cl5ku"]
+animation = &"3.5"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_70ovh"]
+animation = &"4"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n8n6q"]
+animation = &"Hold"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ldlgj"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tqkau"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3u68e"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_02hdn"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qfhfq"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_04q83"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ogapu"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5snmc"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d0y33"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6kjwx"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o4wpe"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3ojf6"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6q2jy"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4f5ud"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_26k1k"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rnt48"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mxo8u"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_42lsc"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5rhrf"]
+states/0/node = SubResource("AnimationNodeAnimation_6n5hi")
+states/0/position = Vector2(248, -72)
+states/0_5/node = SubResource("AnimationNodeAnimation_4hwrv")
+states/0_5/position = Vector2(427.333, -73.4815)
+states/1/node = SubResource("AnimationNodeAnimation_bvf72")
+states/1/position = Vector2(558, -83.3333)
+states/1_5/node = SubResource("AnimationNodeAnimation_jtgis")
+states/1_5/position = Vector2(678, -83.1111)
+states/2/node = SubResource("AnimationNodeAnimation_gd2ka")
+states/2/position = Vector2(782.321, -92)
+states/2_5/node = SubResource("AnimationNodeAnimation_51gni")
+states/2_5/position = Vector2(922, -84.4444)
+states/3/node = SubResource("AnimationNodeAnimation_frb73")
+states/3/position = Vector2(1044, -74.7654)
+states/3_5/node = SubResource("AnimationNodeAnimation_cl5ku")
+states/3_5/position = Vector2(1183.33, -109)
+states/4/node = SubResource("AnimationNodeAnimation_70ovh")
+states/4/position = Vector2(1304, -100.556)
+states/End/position = Vector2(1192.67, 77.3333)
+states/Hold/node = SubResource("AnimationNodeAnimation_n8n6q")
+states/Hold/position = Vector2(782.148, 76.4074)
+states/Start/position = Vector2(199.333, 104.667)
+transitions = ["0", "0_5", SubResource("AnimationNodeStateMachineTransition_ldlgj"), "0_5", "0", SubResource("AnimationNodeStateMachineTransition_tqkau"), "0_5", "1", SubResource("AnimationNodeStateMachineTransition_3u68e"), "1", "0_5", SubResource("AnimationNodeStateMachineTransition_02hdn"), "1", "1_5", SubResource("AnimationNodeStateMachineTransition_qfhfq"), "1_5", "1", SubResource("AnimationNodeStateMachineTransition_04q83"), "1_5", "2", SubResource("AnimationNodeStateMachineTransition_ogapu"), "2", "1_5", SubResource("AnimationNodeStateMachineTransition_5snmc"), "2", "2_5", SubResource("AnimationNodeStateMachineTransition_d0y33"), "2_5", "2", SubResource("AnimationNodeStateMachineTransition_6kjwx"), "2_5", "3", SubResource("AnimationNodeStateMachineTransition_o4wpe"), "3", "2_5", SubResource("AnimationNodeStateMachineTransition_3ojf6"), "3", "3_5", SubResource("AnimationNodeStateMachineTransition_6q2jy"), "3_5", "3", SubResource("AnimationNodeStateMachineTransition_4f5ud"), "3_5", "4", SubResource("AnimationNodeStateMachineTransition_26k1k"), "4", "3_5", SubResource("AnimationNodeStateMachineTransition_rnt48"), "2", "Hold", SubResource("AnimationNodeStateMachineTransition_mxo8u"), "Hold", "2", SubResource("AnimationNodeStateMachineTransition_42lsc")]
+graph_offset = Vector2(103, -174)
 
 [node name="Hand" type="CharacterBody2D" groups=["hand"]]
 collision_layer = 4
@@ -335,9 +597,8 @@ shape = SubResource("RectangleShape2D_w50aq")
 position = Vector2(-4, 226)
 scale = Vector2(4, 4)
 texture = ExtResource("3_517qm")
-hframes = 7
+hframes = 9
 vframes = 2
-frame = 4
 
 [node name="HandCenter" type="Marker2D" parent="ArmPivot"]
 position = Vector2(-154, 109)
@@ -361,3 +622,13 @@ texture = ExtResource("4_yrx5q")
 libraries = {
 "": SubResource("AnimationLibrary_jn425")
 }
+autoplay = "2"
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jn425")
+}
+tree_root = SubResource("AnimationNodeStateMachine_5rhrf")
+anim_player = NodePath("../AnimationPlayer")
+
+[connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]

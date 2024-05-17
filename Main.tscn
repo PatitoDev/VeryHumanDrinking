@@ -1,13 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://xnxu584c7t7d"]
+[gd_scene load_steps=19 format=3 uid="uid://xnxu584c7t7d"]
 
 [ext_resource type="Script" path="res://Main.gd" id="1_ivbgw"]
 [ext_resource type="PackedScene" uid="uid://b22ucm4rdhg5r" path="res://Hand/Hand.tscn" id="1_o2vhs"]
 [ext_resource type="PackedScene" uid="uid://uieckdtouw1t" path="res://Cup/Cup.tscn" id="2_4dcgs"]
 [ext_resource type="Texture2D" uid="uid://c4mfnktnfd4iy" path="res://Images/bg.png" id="2_uvbi6"]
+[ext_resource type="PackedScene" uid="uid://bp58g80j8rwvv" path="res://FlowControlPanel/FlowControlPanel.tscn" id="3_kf60h"]
 [ext_resource type="PackedScene" uid="uid://or84j01ah6c2" path="res://Faucet/Faucet.tscn" id="4_ovpwo"]
 [ext_resource type="Shader" path="res://Shaders/Pixelation.gdshader" id="7_ikfsh"]
 [ext_resource type="PackedScene" uid="uid://dv7ebnixy5equ" path="res://WaterScene/WaterScene.tscn" id="8_4tvge"]
 [ext_resource type="PackedScene" uid="uid://dr0o6eb3n71u" path="res://Face/Face.tscn" id="9_7kysg"]
+[ext_resource type="Texture2D" uid="uid://cmtrpqlbl4mix" path="res://Images/fountainTableFront.png" id="10_ffuum"]
 [ext_resource type="Texture2D" uid="uid://bbb341jpoveap" path="res://Images/monitor.png" id="11_8p6gq"]
 
 [sub_resource type="Animation" id="Animation_1wx26"]
@@ -24,15 +26,15 @@ size = Vector2(176, 141)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyndm"]
 size = Vector2(785.5, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_euqqk"]
-size = Vector2(476, 536)
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4m6vl"]
 shader = ExtResource("7_ikfsh")
 shader_parameter/pixel_size = 5
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_wqm2o"]
 viewport_path = NodePath("CanvasLayer/SubViewportContainer/SubViewport")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_euqqk"]
+size = Vector2(476, 536)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ivbgw")
@@ -47,16 +49,16 @@ scale = Vector2(4, 4)
 texture = ExtResource("2_uvbi6")
 centered = false
 
-[node name="Faucet" parent="." node_paths=PackedStringArray("despawnPoint", "vpContainer") instance=ExtResource("4_ovpwo")]
-position = Vector2(325, 650)
-despawnPoint = NodePath("../WaterDespawnPoint")
-vpContainer = NodePath("../CanvasLayer/SubViewportContainer/SubViewport/WaterScene/Camera2D")
+[node name="FlowControlPanel" parent="." instance=ExtResource("3_kf60h")]
+position = Vector2(21, 766)
 
 [node name="Hand" parent="." instance=ExtResource("1_o2vhs")]
 position = Vector2(603, 319)
 
-[node name="Cup" parent="." instance=ExtResource("2_4dcgs")]
-position = Vector2(329, 851)
+[node name="Faucet" parent="." node_paths=PackedStringArray("despawnPoint", "vpContainer") instance=ExtResource("4_ovpwo")]
+position = Vector2(325, 649)
+despawnPoint = NodePath("../WaterDespawnPoint")
+vpContainer = NodePath("../CanvasLayer/SubViewportContainer/SubViewport/WaterScene/Camera2D")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(2572, 405)
@@ -79,6 +81,22 @@ position = Vector2(580, 122)
 scale = Vector2(4, 4)
 texture = ExtResource("11_8p6gq")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_4m6vl")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 1152.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_wqm2o")
+
+[node name="FountainTableFront" type="Sprite2D" parent="."]
+position = Vector2(330, 922)
+scale = Vector2(4, 4)
+texture = ExtResource("10_ffuum")
+
 [node name="Face" parent="." instance=ExtResource("9_7kysg")]
 position = Vector2(988, 680)
 
@@ -88,6 +106,9 @@ position = Vector2(5, 6)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Face/OpenMouthTrigger"]
 position = Vector2(-82, -34)
 shape = SubResource("RectangleShape2D_euqqk")
+
+[node name="Cup" parent="." instance=ExtResource("2_4dcgs")]
+position = Vector2(329, 851)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
@@ -113,18 +134,10 @@ render_target_update_mode = 4
 
 [node name="WaterScene" parent="CanvasLayer/SubViewportContainer/SubViewport" instance=ExtResource("8_4tvge")]
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_4m6vl")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("ViewportTexture_wqm2o")
-
 [node name="WaterDespawnPoint" type="Marker2D" parent="."]
 position = Vector2(558, 1332)
 
+[connection signal="SpawnWater" from="FlowControlPanel" to="." method="_on_flow_control_panel_spawn_water"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_shape_entered" from="Area2D" to="." method="_on_area_2d_area_shape_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

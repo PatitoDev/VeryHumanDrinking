@@ -30,3 +30,8 @@ func _on_open_mouth_trigger_body_exited(body):
 	if (!body.is_in_group('cup')):
 		return;
 	face.setOpenMouth(false);
+
+@onready var faucet = $Faucet
+
+func _on_flow_control_panel_spawn_water():
+	faucet.onSpawnWater();

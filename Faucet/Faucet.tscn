@@ -1,16 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://or84j01ah6c2"]
+[gd_scene load_steps=6 format=3 uid="uid://or84j01ah6c2"]
 
 [ext_resource type="Script" path="res://Faucet/Faucet.gd" id="1_n1wte"]
 [ext_resource type="Texture2D" uid="uid://m762u2jupu7y" path="res://Faucet/part.png" id="2_ll5vd"]
-[ext_resource type="Texture2D" uid="uid://qwnlqisucfve" path="res://Images/fountain.png" id="3_wndde"]
-[ext_resource type="Texture2D" uid="uid://chydo442eivha" path="res://Images/handle.png" id="4_l7rp0"]
-[ext_resource type="Texture2D" uid="uid://bos0wj2ae4roa" path="res://Images/fountainHead.png" id="5_nb1du"]
+[ext_resource type="Texture2D" uid="uid://bbef63xv4c083" path="res://Images/fountain2.png" id="3_4s1um"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygbs3"]
-size = Vector2(764.5, 32)
+size = Vector2(531, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_as18y"]
-size = Vector2(89.9935, 31.0189)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_utl3q"]
+size = Vector2(231, 46)
 
 [node name="Faucet" type="Node2D"]
 script = ExtResource("1_n1wte")
@@ -18,48 +16,32 @@ tex = ExtResource("2_ll5vd")
 spawnRad = 10.0
 
 [node name="Fountain" type="Sprite2D" parent="."]
-position = Vector2(-251, 230)
+position = Vector2(-824, -307)
 scale = Vector2(4, 4)
-texture = ExtResource("3_wndde")
+texture = ExtResource("3_4s1um")
+centered = false
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(0, 33)
+position = Vector2(-1, 38)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-259.75, 300)
+position = Vector2(-376.5, 300)
 shape = SubResource("RectangleShape2D_ygbs3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PackedVector2Array(19, -61, 25, -71, 10, -86, 3, -75, -98, -75, -98, -85, -88, -92, -87, -201, -161, -202, -162, -85, -156, -70, -156, 78, -168, 77, -168, 164, -149, 164, -149, 245, -149, 270, -139, 279, -115, 279, -106, 269, -107, 163, -92, 163, -92, 77, -111, 77, -110, 60, -98, 49, -97, -2, -79, -13, -25, -13, -25, 29, -13, 29, -13, -20, 9, -20, 8, 30, 20, 30)
+polygon = PackedVector2Array(19, -61, 25, -71, 10, -86, 3, -75, -98, -75, -98, -85, -90, -93, -90, -197, -162, -196, -162, -85, -156, -70, -156, 51, -147, 62, -147, 160, -149, 245, -149, 270, -139, 279, -115, 279, -106, 269, -107, 163, -111, 77, -110, 60, -98, 49, -97, -2, -79, -13, -25, -13, -25, 29, -13, 29, -4, 31, 3, 31, 8, 30, 20, 30)
 
-[node name="HandleOrigin" type="Node2D" parent="."]
-position = Vector2(-129, 124)
-rotation = -0.000210541
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(173, 300)
+collision_layer = 2
+collision_mask = 2
 
-[node name="Handle" type="Sprite2D" parent="HandleOrigin"]
-position = Vector2(28, 0)
-scale = Vector2(4, 4)
-texture = ExtResource("4_l7rp0")
-
-[node name="GrabHandleArea" type="Area2D" parent="HandleOrigin" groups=["hooldable"]]
-collision_layer = 4
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HandleOrigin/GrabHandleArea"]
-position = Vector2(27.9999, 0.505898)
-shape = SubResource("RectangleShape2D_as18y")
-
-[node name="HandleMarker" type="Marker2D" parent="HandleOrigin"]
-position = Vector2(32, 0.00673731)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-168.5, -7)
+shape = SubResource("RectangleShape2D_utl3q")
 
 [node name="WaterFlowTimer" type="Timer" parent="."]
-
-[node name="FountainHead" type="Sprite2D" parent="."]
-z_index = 2
-position = Vector2(-7, -26)
-scale = Vector2(4, 4)
-texture = ExtResource("5_nb1du")
 
 [connection signal="timeout" from="WaterFlowTimer" to="." method="_on_timer_timeout"]
