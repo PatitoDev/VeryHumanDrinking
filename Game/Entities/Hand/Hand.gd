@@ -1,5 +1,12 @@
 extends CharacterBody2D
 
+@onready var audioPlayer = $AudioStreamPlayer
+@onready var armMovementSFXs = [
+	preload("res://Audio/Arm/sfx_arm_00.wav"),
+	preload("res://Audio/Arm/sfx_arm_01.wav"),
+	preload("res://Audio/Arm/sfx_arm_02.wav")
+];
+
 @onready var animationTree = $AnimationTree
 @onready var armPivot = $ArmPivot
 @onready var animationPlayer = $AnimationPlayer
@@ -106,6 +113,10 @@ func updateRotationStep(value: int):
 	isAnimating = true;
 	
 	rotationStep = newValue;
+	
+	audioPlayer.stream = armMovementSFXs.pick_random();
+	audioPlayer.play();
+	
 	match rotationStep:
 		0:
 			stateMachine.travel('0');

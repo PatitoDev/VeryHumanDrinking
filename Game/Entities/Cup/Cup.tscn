@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://uieckdtouw1t"]
+[gd_scene load_steps=8 format=3 uid="uid://uieckdtouw1t"]
 
 [ext_resource type="Script" path="res://Entities/Cup/Cup.gd" id="1_4rkuo"]
 [ext_resource type="Texture2D" uid="uid://cy67x8ljpoj0e" path="res://Images/cup.png" id="2_fkv2d"]
@@ -11,6 +11,12 @@ size = Vector2(17.7459, 88.0152)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8r8g0"]
 size = Vector2(72, 107.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpenu"]
+size = Vector2(87, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a06xb"]
+size = Vector2(62, 104)
 
 [node name="Cup" type="RigidBody2D" groups=["cup", "grabbable"]]
 collision_layer = 7
@@ -50,3 +56,30 @@ shape = SubResource("RectangleShape2D_8r8g0")
 position = Vector2(0, -11)
 scale = Vector2(4, 4)
 texture = ExtResource("2_fkv2d")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="AreaSFXs" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaSFXs"]
+position = Vector2(0.5, -8.5)
+shape = SubResource("RectangleShape2D_fpenu")
+
+[node name="WaterFillingCollider" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterFillingCollider"]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_a06xb")
+debug_color = Color(0.803922, 0, 0.85098, 0.419608)
+
+[node name="WaterFillingPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="body_entered" from="AreaSFXs" to="." method="_on_area_sf_xs_body_entered"]
+[connection signal="body_shape_entered" from="WaterFillingCollider" to="." method="_on_water_filling_collider_body_shape_entered"]
+[connection signal="body_shape_exited" from="WaterFillingCollider" to="." method="_on_water_filling_collider_body_shape_exited"]

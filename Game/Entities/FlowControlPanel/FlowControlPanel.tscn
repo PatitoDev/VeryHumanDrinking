@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bp58g80j8rwvv"]
+[gd_scene load_steps=8 format=3 uid="uid://bp58g80j8rwvv"]
 
 [ext_resource type="Script" path="res://Entities/FlowControlPanel/FlowControlPanel.gd" id="1_3pu7j"]
 [ext_resource type="Texture2D" uid="uid://dhrdnbh277jr" path="res://Images/fountainFlowPanel.png" id="1_5e8np"]
 [ext_resource type="Texture2D" uid="uid://chydo442eivha" path="res://Images/handle.png" id="2_rwc1j"]
 [ext_resource type="Texture2D" uid="uid://cxj8b7m8h7qu5" path="res://Images/pointer.png" id="5_4d47a"]
+[ext_resource type="AudioStream" uid="uid://cqvhgxtxjyby1" path="res://Audio/Water/sfx_water_flowing.ogg" id="6_mpcq7"]
 [ext_resource type="PackedScene" uid="uid://rw1js267fy5w" path="res://Entities/CounterDigit/CounterDigit.tscn" id="6_umfvs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0low"]
@@ -93,6 +94,13 @@ autostart = true
 [node name="PointerTimer3" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="AudioSfx" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="AudioSfxWaterFlowing" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_mpcq7")
+bus = &"SFX"
 
 [connection signal="timeout" from="WaterFlowTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="PointerTimer" to="." method="_on_pointer_timer_timeout"]

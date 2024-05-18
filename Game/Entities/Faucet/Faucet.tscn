@@ -25,8 +25,8 @@ centered = false
 position = Vector2(-1, 38)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 11
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-239, 300)
@@ -37,8 +37,8 @@ polygon = PackedVector2Array(19, -61, 25, -71, 10, -86, 3, -75, -98, -75, -98, -
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(173, 300)
-collision_layer = 2
-collision_mask = 2
+collision_layer = 10
+collision_mask = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(-168.5, -7)

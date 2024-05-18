@@ -50,6 +50,7 @@ rotateLeft={
 2d_physics/layer_1="Water"
 2d_physics/layer_2="Cup"
 2d_physics/layer_3="Hand"
+2d_physics/layer_4="Table"
 
 [rendering]
 

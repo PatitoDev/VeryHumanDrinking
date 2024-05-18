@@ -3,6 +3,19 @@ var objects: Array[Array] = []
 
 signal SpawnWater;
 
+@onready var openSFXs = [
+	preload("res://Audio/Faucet/sfx_faucet_open_00.wav"),
+	preload("res://Audio/Faucet/sfx_faucet_open_01.wav")
+]
+
+@onready var closeSFXs = [
+	preload("res://Audio/Faucet/sfx_faucet_close_00.wav"),
+	preload("res://Audio/Faucet/sfx_faucet_close_01.wav")
+]
+
+@onready var audioSfxWaterFlowing = $AudioSfxWaterFlowing
+@onready var audioSFXPlayer = $AudioSfx
+
 @onready var handleMarker = $HandleOrigin/HandleMarker
 @onready var grabHandleArea = $HandleOrigin/GrabHandleArea
 @onready var waterFlowTimer = $WaterFlowTimer
@@ -20,6 +33,7 @@ var initialPositionDifference = null;
 var isGrabbed = false;
 
 var waterCreated = 0;
+var isOpen = false;
 
 func _ready() -> void:
 	setWaterFlow(0)
@@ -38,12 +52,28 @@ func setWaterFlow(value: int):
 	var emitTime = pow(time / 500.0, 2);
 	waterFlowTimer.wait_time = max(emitTime, 0.0001);
 	
+	audioSfxWaterFlowing.volume_db = pow((waterFlow / 10), 2) / 50;
+	
 	if waterFlow > 10:
 		if waterFlowTimer.is_stopped():
 			waterFlowTimer.start();
+			setIsOpen(true);
 	else:
 		if !waterFlowTimer.is_stopped():
 			waterFlowTimer.stop();
+			setIsOpen(false);
+
+func setIsOpen(value: bool):
+	if (isOpen == value):
+		return;
+	isOpen = value;
+	if (value):
+		audioSFXPlayer.stream = openSFXs.pick_random();
+		audioSfxWaterFlowing.play();
+	else:
+		audioSFXPlayer.stream = closeSFXs.pick_random();
+		audioSfxWaterFlowing.stop();
+	audioSFXPlayer.play();
 
 func setIsGrabbed(value: bool):
 	isGrabbed = value;
