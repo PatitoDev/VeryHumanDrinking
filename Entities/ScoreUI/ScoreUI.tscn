@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://dk8motd1dsqwl"]
+
+[ext_resource type="Script" path="res://Entities/ScoreUI/ScoreUI.gd" id="1_o3hi1"]
+[ext_resource type="Texture2D" uid="uid://7laknv8dpvr0" path="res://Images/ScoreAndTimer.png" id="2_y3slb"]
+[ext_resource type="PackedScene" uid="uid://rw1js267fy5w" path="res://Entities/CounterDigit/CounterDigit.tscn" id="3_pxf88"]
+[ext_resource type="Texture2D" uid="uid://yoj8jnmaxvwu" path="res://Images/DigitalDigits.png" id="4_aj6wt"]
+
+[node name="ScoreUi" type="Node2D"]
+script = ExtResource("1_o3hi1")
+
+[node name="ScoreAndTimer" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_y3slb")
+centered = false
+
+[node name="Digit2" parent="." instance=ExtResource("3_pxf88")]
+position = Vector2(251, 108)
+
+[node name="Digit1" parent="." instance=ExtResource("3_pxf88")]
+position = Vector2(276, 108)
+
+[node name="Digits" type="Node2D" parent="."]
+position = Vector2(28, 102)
+
+[node name="DigitalDigits" type="Sprite2D" parent="Digits"]
+position = Vector2(14, 22)
+scale = Vector2(4, 4)
+texture = ExtResource("4_aj6wt")
+hframes = 11
+frame = 10
+
+[node name="DigitalDigits2" type="Sprite2D" parent="Digits"]
+position = Vector2(42, 22)
+scale = Vector2(4, 4)
+texture = ExtResource("4_aj6wt")
+hframes = 11
+frame = 10
+
+[node name="DigitalDigits3" type="Sprite2D" parent="Digits"]
+position = Vector2(70, 22)
+scale = Vector2(4, 4)
+texture = ExtResource("4_aj6wt")
+hframes = 11
+frame = 10
+
+[node name="DigitalDigits4" type="Sprite2D" parent="Digits"]
+position = Vector2(98, 22)
+scale = Vector2(4, 4)
+texture = ExtResource("4_aj6wt")
+hframes = 11
+frame = 10
+
+[node name="DigitalDigits5" type="Sprite2D" parent="Digits"]
+position = Vector2(126, 22)
+scale = Vector2(4, 4)
+texture = ExtResource("4_aj6wt")
+hframes = 11
+frame = 10
+
+[node name="DigitalDigits6" type="Sprite2D" parent="Digits"]
+position = Vector2(154, 22)
+scale = Vector2(4, 4)
+texture = ExtResource("4_aj6wt")
+hframes = 11
+frame = 10

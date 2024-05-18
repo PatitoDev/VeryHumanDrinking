@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://m762u2jupu7y"
-path="res://.godot/imported/part.png-d5d135a9afd66d7af04480bf5338daac.ctex"
+uid="uid://yoj8jnmaxvwu"
+path="res://.godot/imported/DigitalDigits.png-81ae67c1ccb6a2f80b4322bb9b0646ed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Faucet/part.png"
-dest_files=["res://.godot/imported/part.png-d5d135a9afd66d7af04480bf5338daac.ctex"]
+source_file="res://Images/DigitalDigits.png"
+dest_files=["res://.godot/imported/DigitalDigits.png-81ae67c1ccb6a2f80b4322bb9b0646ed.ctex"]
 
 [params]
 

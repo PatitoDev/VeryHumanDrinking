@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://rw1js267fy5w"]
 
-[ext_resource type="Texture2D" uid="uid://dor6wuhw1wu3q" path="res://Images/numberStrip.png" id="1_8hbq0"]
-[ext_resource type="Script" path="res://CounterDigit/CounterDigit.gd" id="1_abjix"]
+[ext_resource type="Script" path="res://Entities/CounterDigit/CounterDigit.gd" id="1_432vd"]
+[ext_resource type="Texture2D" uid="uid://dor6wuhw1wu3q" path="res://Images/numberStrip.png" id="2_srh0e"]
 
 [node name="NumberStripContainer" type="Node2D"]
-script = ExtResource("1_abjix")
+script = ExtResource("1_432vd")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 clip_children = 1
@@ -15,17 +15,17 @@ offset_bottom = 28.0
 
 [node name="NumberStrip1" type="Sprite2D" parent="ColorRect/NumberStripContainer"]
 scale = Vector2(4, 4)
-texture = ExtResource("1_8hbq0")
+texture = ExtResource("2_srh0e")
 centered = false
 
 [node name="NumberStrip2" type="Sprite2D" parent="ColorRect/NumberStripContainer"]
 position = Vector2(0, 280)
 scale = Vector2(4, 4)
-texture = ExtResource("1_8hbq0")
+texture = ExtResource("2_srh0e")
 centered = false
 
 [node name="NumberStrip3" type="Sprite2D" parent="ColorRect/NumberStripContainer"]
 position = Vector2(0, 560)
 scale = Vector2(4, 4)
-texture = ExtResource("1_8hbq0")
+texture = ExtResource("2_srh0e")
 centered = false

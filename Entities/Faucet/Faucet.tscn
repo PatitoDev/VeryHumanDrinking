@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://or84j01ah6c2"]
 
-[ext_resource type="Script" path="res://Faucet/Faucet.gd" id="1_n1wte"]
-[ext_resource type="Texture2D" uid="uid://m762u2jupu7y" path="res://Faucet/part.png" id="2_ll5vd"]
+[ext_resource type="Script" path="res://Entities/Faucet/Faucet.gd" id="1_n1wte"]
+[ext_resource type="Texture2D" uid="uid://m762u2jupu7y" path="res://Entities/Faucet/part.png" id="2_ll5vd"]
 [ext_resource type="Texture2D" uid="uid://bbef63xv4c083" path="res://Images/fountain2.png" id="3_4s1um"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygbs3"]

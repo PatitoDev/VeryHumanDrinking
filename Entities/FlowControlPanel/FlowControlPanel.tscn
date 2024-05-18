@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bp58g80j8rwvv"]
 
-[ext_resource type="Script" path="res://FlowControlPanel/FlowControlPanel.gd" id="1_3pu7j"]
+[ext_resource type="Script" path="res://Entities/FlowControlPanel/FlowControlPanel.gd" id="1_3pu7j"]
 [ext_resource type="Texture2D" uid="uid://dhrdnbh277jr" path="res://Images/fountainFlowPanel.png" id="1_5e8np"]
 [ext_resource type="Texture2D" uid="uid://chydo442eivha" path="res://Images/handle.png" id="2_rwc1j"]
 [ext_resource type="Texture2D" uid="uid://cxj8b7m8h7qu5" path="res://Images/pointer.png" id="5_4d47a"]
-[ext_resource type="PackedScene" uid="uid://rw1js267fy5w" path="res://CounterDigit/CounterDigit.tscn" id="6_umfvs"]
+[ext_resource type="PackedScene" uid="uid://rw1js267fy5w" path="res://Entities/CounterDigit/CounterDigit.tscn" id="6_umfvs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s0low"]
 size = Vector2(89.9935, 31.0189)
@@ -13,7 +13,7 @@ size = Vector2(89.9935, 31.0189)
 script = ExtResource("1_3pu7j")
 
 [node name="FountainFlowPanel" type="Sprite2D" parent="."]
-position = Vector2(-41, -304)
+position = Vector2(-96, -600)
 scale = Vector2(4, 4)
 texture = ExtResource("1_5e8np")
 centered = false
@@ -43,22 +43,22 @@ position = Vector2(32, 0.00673731)
 [node name="Counter" type="Node2D" parent="."]
 
 [node name="FirstDigit" parent="Counter" instance=ExtResource("6_umfvs")]
-position = Vector2(95, -168)
+position = Vector2(96, -188)
 
 [node name="SecondDigit" parent="Counter" instance=ExtResource("6_umfvs")]
-position = Vector2(71, -168)
+position = Vector2(72, -188)
 
 [node name="ThirdDigit" parent="Counter" instance=ExtResource("6_umfvs")]
-position = Vector2(47, -168)
+position = Vector2(48, -188)
 
 [node name="FourthDigit" parent="Counter" instance=ExtResource("6_umfvs")]
-position = Vector2(23, -168)
+position = Vector2(24, -188)
 
 [node name="FifthDigit" parent="Counter" instance=ExtResource("6_umfvs")]
-position = Vector2(-1, -168)
+position = Vector2(0, -188)
 
 [node name="Pointer" type="Node2D" parent="."]
-position = Vector2(18, -115)
+position = Vector2(19, -135)
 
 [node name="Pointer2" type="Sprite2D" parent="Pointer"]
 position = Vector2(0, -2)
@@ -66,7 +66,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("5_4d47a")
 
 [node name="Pointer2" type="Node2D" parent="."]
-position = Vector2(58, -92)
+position = Vector2(59, -112)
 rotation = 1.5708
 
 [node name="Pointer2" type="Sprite2D" parent="Pointer2"]
@@ -75,7 +75,7 @@ scale = Vector2(4, 4)
 texture = ExtResource("5_4d47a")
 
 [node name="Pointer3" type="Node2D" parent="."]
-position = Vector2(95, -116)
+position = Vector2(96, -136)
 rotation = -3.14159
 
 [node name="Pointer2" type="Sprite2D" parent="Pointer3"]

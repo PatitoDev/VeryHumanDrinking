@@ -1,5 +1,7 @@
 extends Node2D
 
+var duration = 30;
+var time = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,7 +10,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	time += delta;
+	score_ui.updateTime(floor(duration - time));
 
 var waterCount = 0;
 
@@ -32,6 +35,8 @@ func _on_open_mouth_trigger_body_exited(body):
 	face.setOpenMouth(false);
 
 @onready var faucet = $Faucet
+@onready var score_ui = $ScoreUi
 
 func _on_flow_control_panel_spawn_water():
 	faucet.onSpawnWater();
+	score_ui.updateScore(waterCount)
