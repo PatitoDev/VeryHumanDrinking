@@ -6,6 +6,46 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14ew4"]
 size = Vector2(476, 536)
 
+[sub_resource type="Animation" id="Animation_6m7qg"]
+resource_name = "Close"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/CollisionPolygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-244, -293, -180, -340, -67, -336, -99, -27, -82, 585, -51, 577, -77, -34, -64, -224, -16, -290, -16, -352, -30, -407, -75, -454, -127, -471, -170, -465, -199, -444, -223, -416, -243, -392, -270, -373, -270, -356, -257, -345, -240, -346, -258, -324, -257, -306)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody2D/CollisionPolygon2D2:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-166, -328, -63, -303, -51, -246, -60, -131, -75, 557, -115, 566, -118, -247, -132, -274, -159, -283, -181, -292, -182, -317)]
+}
+
 [sub_resource type="Animation" id="Animation_frv16"]
 resource_name = "Open"
 length = 0.01
@@ -83,46 +123,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [PackedVector2Array(-166, -328, -63, -303, -51, -246, -60, -131, -66, -70, -115, -69, -118, -247, -132, -274, -159, -283, -181, -292, -182, -317)]
-}
-
-[sub_resource type="Animation" id="Animation_6m7qg"]
-resource_name = "Close"
-length = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Face:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("StaticBody2D/CollisionPolygon2D:polygon")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [PackedVector2Array(-244, -293, -180, -340, -67, -336, -99, -27, -82, 585, -51, 577, -77, -34, -64, -224, -16, -290, -16, -352, -30, -407, -75, -454, -127, -471, -170, -465, -199, -444, -223, -416, -243, -392, -270, -373, -270, -356, -257, -345, -240, -346, -258, -324, -257, -306)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("StaticBody2D/CollisionPolygon2D2:polygon")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [PackedVector2Array(-166, -328, -63, -303, -51, -246, -60, -131, -75, 557, -115, 566, -118, -247, -132, -274, -159, -283, -181, -292, -182, -317)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_171u3"]
