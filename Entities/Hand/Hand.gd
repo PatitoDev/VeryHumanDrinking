@@ -38,13 +38,18 @@ func _physics_process(delta):
 				grabbedCup = area.get_parent();
 				grabbedCup.setTarget(handCenter);
 				return;
-				
+
+		for area in areas:
 			if ((area as Node2D).is_in_group('hooldable')):
 				grabHandle(area);
 				return;
 
 	if (Input.is_action_just_released("grab")):
 		if holdedElement != null:
+			if grabAnimationTween != null:
+				grabAnimationTween.stop();
+				grabAnimationTween = null;
+			
 			holdedElement.get_parent().setIsGrabbed(false);
 			holdedElement = null;
 			armPivot.rotation_degrees = 0;
@@ -60,6 +65,7 @@ func _physics_process(delta):
 		global_position = holdedElement.get_node('HandleMarker').global_position;
 
 var isOnGrabbingAnimation = false;
+var grabAnimationTween = null;
 
 func grabHandle(area: Node2D):
 	rotationStep = 2;
@@ -67,7 +73,7 @@ func grabHandle(area: Node2D):
 	isOnGrabbingAnimation = true;
 	
 	holdedElement = area.get_parent();
-	var tween = get_tree().create_tween()
+	grabAnimationTween = get_tree().create_tween()
 	
 	#var targetRotation = armPivot.rotation + armPivot.get_angle_to(holdedElement);
 	
@@ -75,12 +81,10 @@ func grabHandle(area: Node2D):
 	if (targetAngle > 180):
 		targetAngle =  targetAngle - 360;
 	
-	print(targetAngle)
+	grabAnimationTween.tween_property(armPivot, "rotation_degrees", targetAngle, 0.2)
+	grabAnimationTween.tween_property(self, "global_position", holdedElement.get_node('HandleMarker').global_position, 0.2)
 	
-	tween.tween_property(armPivot, "rotation_degrees", targetAngle, 0.2)
-	tween.tween_property(self, "global_position", holdedElement.get_node('HandleMarker').global_position, 0.2)
-	
-	tween.connect('finished', onGrabHandleAnimationFinished);
+	grabAnimationTween.connect('finished', onGrabHandleAnimationFinished);
 	# after animation has finished
 
 func onGrabHandleAnimationFinished():

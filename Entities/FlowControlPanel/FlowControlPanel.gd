@@ -33,12 +33,17 @@ func setWaterFlow(value: int):
 			newValue = 0;
 	waterFlow = newValue;
 	handleOrigin.rotation_degrees = waterFlow;
+
+	var time = maxWaterFlow - waterFlow;
+	var emitTime = pow(time / 500.0, 2);
+	waterFlowTimer.wait_time = max(emitTime, 0.0001);
+	
 	if waterFlow > 10:
 		if waterFlowTimer.is_stopped():
 			waterFlowTimer.start();
 	else:
-		waterFlowTimer.stop();
-	waterFlowTimer.wait_time = (pow((maxWaterFlow - waterFlow) / 1000.0, 2));
+		if !waterFlowTimer.is_stopped():
+			waterFlowTimer.stop();
 
 func setIsGrabbed(value: bool):
 	isGrabbed = value;
@@ -62,7 +67,6 @@ func _on_timer_timeout():
 	waterCreated += 1;
 
 	var totalAsString:String = str(waterCreated).lpad(5, "0");
-	print(waterCreated)
 	totalAsString.split();
 	first_digit.setNumber(int(totalAsString[4]));
 	second_digit.setNumber(int(totalAsString[3]));

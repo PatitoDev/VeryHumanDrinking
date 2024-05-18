@@ -5,13 +5,12 @@ var objects: Array[Array] = []
 @onready var cir_shape := CircleShape2D.new()
 @export var tex: Texture2D
 @export var spawnRad: float
-var texSize: float = 48 / 2
+var texSize: float = 48 / 1
 var pointer: bool = true
-@onready var attrForce: float = 20
 @export var vpContainer: Node;
 
 func _ready() -> void:
-	cir_shape.radius = 8 / 2
+	cir_shape.radius = 8 / 1
 	cir_shape.custom_solver_bias = 0.1
 
 func create_object(pos: Vector2):

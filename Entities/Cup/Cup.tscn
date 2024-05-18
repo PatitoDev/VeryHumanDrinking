@@ -13,8 +13,8 @@ size = Vector2(17.7459, 88.0152)
 size = Vector2(72, 107.5)
 
 [node name="Cup" type="RigidBody2D" groups=["cup", "grabbable"]]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_4rkuo")
 
 [node name="ColorRect" type="ColorRect" parent="."]

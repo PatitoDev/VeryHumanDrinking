@@ -11,7 +11,7 @@ func setTarget(target: Node2D):
 
 func _physics_process(delta):
 	if _target:
-		var I = 5000*mass#infuence
+		var I = 5000*mass / 7#infuence
 		var S = 20#stiffness 
 		var P = _target.global_position - global_transform.origin
 		var M = mass

@@ -1,37 +1,147 @@
-[gd_scene load_steps=4 format=3 uid="uid://dr0o6eb3n71u"]
+[gd_scene load_steps=8 format=3 uid="uid://dr0o6eb3n71u"]
 
 [ext_resource type="Script" path="res://Entities/Face/Face.gd" id="1_q5l6l"]
 [ext_resource type="Texture2D" uid="uid://bnkgil1px3yh1" path="res://Images/Face.png" id="2_e0w7w"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjl1l"]
-size = Vector2(104, 102)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14ew4"]
+size = Vector2(476, 536)
+
+[sub_resource type="Animation" id="Animation_frv16"]
+resource_name = "Open"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/CollisionPolygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-209, -400, -103, -293, -82, -254, -99, -27, -82, 585, -51, 577, -77, -34, -64, -224, 8, -300, 18, -336, 20, -399, -3, -439, -36, -464, -79, -473, -106, -471, -123, -465, -156, -468, -167, -473, -184, -466, -184, -448, -179, -434, -201, -426, -215, -414)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody2D/CollisionPolygon2D2:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-166, -328, -63, -303, -51, -246, -60, -131, -75, 557, -115, 566, -118, -247, -132, -274, -159, -283, -181, -292, -182, -317)]
+}
+
+[sub_resource type="Animation" id="Animation_y3ghp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/CollisionPolygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-209, -400, -103, -293, -82, -254, -98, -35, -77, -34, -64, -224, 8, -300, 18, -336, 20, -399, -3, -439, -36, -464, -79, -473, -106, -471, -123, -465, -156, -468, -167, -473, -184, -466, -184, -448, -179, -434, -201, -426, -215, -414)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody2D/CollisionPolygon2D2:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-166, -328, -63, -303, -51, -246, -60, -131, -66, -70, -115, -69, -118, -247, -132, -274, -159, -283, -181, -292, -182, -317)]
+}
+
+[sub_resource type="Animation" id="Animation_6m7qg"]
+resource_name = "Close"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StaticBody2D/CollisionPolygon2D:polygon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-244, -293, -180, -340, -67, -336, -99, -27, -82, 585, -51, 577, -77, -34, -64, -224, -16, -290, -16, -352, -30, -407, -75, -454, -127, -471, -170, -465, -199, -444, -223, -416, -243, -392, -270, -373, -270, -356, -257, -345, -240, -346, -258, -324, -257, -306)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody2D/CollisionPolygon2D2:polygon")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [PackedVector2Array(-166, -328, -63, -303, -51, -246, -60, -131, -75, 557, -115, 566, -118, -247, -132, -274, -159, -283, -181, -292, -182, -317)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_171u3"]
+_data = {
+"Close": SubResource("Animation_6m7qg"),
+"Open": SubResource("Animation_frv16"),
+"RESET": SubResource("Animation_y3ghp")
+}
 
 [node name="Face" type="Node2D"]
 script = ExtResource("1_q5l6l")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-offset_left = 84.0
-offset_top = -14.0
-offset_right = 413.0
-offset_bottom = 200.0
-rotation = 0.42412
+[node name="OpenMouthTrigger" type="Area2D" parent="."]
+position = Vector2(5, 6)
 
-[node name="ColorRect3" type="ColorRect" parent="."]
-visible = false
-offset_left = 104.0
-offset_top = 39.0
-offset_right = 146.0
-offset_bottom = 78.0
-rotation = 0.42412
-color = Color(0, 0, 0, 1)
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-visible = false
-offset_left = -2.0
-offset_top = 256.0
-offset_right = 327.0
-offset_bottom = 470.0
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OpenMouthTrigger"]
+position = Vector2(-82, -34)
+shape = SubResource("RectangleShape2D_14ew4")
+debug_color = Color(0.733333, 0.458824, 0.309804, 0.419608)
 
 [node name="Face" type="Sprite2D" parent="."]
 position = Vector2(1, 146)
@@ -40,7 +150,9 @@ texture = ExtResource("2_e0w7w")
 hframes = 2
 frame = 1
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["NotWater"]]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
 position = Vector2(124, 271)
@@ -50,18 +162,10 @@ polygon = PackedVector2Array(-209, -400, -103, -293, -82, -254, -98, -35, -77, -
 position = Vector2(49, 306)
 polygon = PackedVector2Array(-166, -328, -63, -303, -51, -246, -60, -131, -66, -70, -115, -69, -118, -247, -132, -274, -159, -283, -181, -292, -182, -317)
 
-[node name="WaterCounter" type="Area2D" parent="."]
-position = Vector2(-76, 114)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_171u3")
+}
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterCounter"]
-position = Vector2(68, 71)
-shape = SubResource("RectangleShape2D_rjl1l")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 2.0
-offset_top = -265.0
-offset_right = 63.0
-offset_bottom = -242.0
-text = "Water:"
-
-[connection signal="body_shape_entered" from="WaterCounter" to="." method="_on_water_counter_body_shape_entered"]
+[connection signal="body_entered" from="OpenMouthTrigger" to="." method="_on_open_mouth_trigger_body_entered"]
+[connection signal="body_exited" from="OpenMouthTrigger" to="." method="_on_open_mouth_trigger_body_exited"]

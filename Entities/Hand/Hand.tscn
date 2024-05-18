@@ -576,8 +576,8 @@ transitions = ["0", "0_5", SubResource("AnimationNodeStateMachineTransition_ldlg
 graph_offset = Vector2(103, -174)
 
 [node name="Hand" type="CharacterBody2D" groups=["hand"]]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 0
+collision_mask = 0
 script = ExtResource("1_oijfh")
 
 [node name="Hand" type="Sprite2D" parent="."]

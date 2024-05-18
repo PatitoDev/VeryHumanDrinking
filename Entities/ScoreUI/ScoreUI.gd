@@ -9,9 +9,7 @@ func updateTime(value: int):
 	scoreDigit2.setNumber(int(digits[0]));
 
 func updateScore(value: int):
-	print(value)
 	var digits = str(value).lpad(6, 'X');
-	print(digits)
 	var digitLabels = [
 		$Digits/DigitalDigits, $Digits/DigitalDigits2, $Digits/DigitalDigits3, 
 		$Digits/DigitalDigits4, $Digits/DigitalDigits5, $Digits/DigitalDigits6

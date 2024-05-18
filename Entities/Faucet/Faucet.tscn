@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bbef63xv4c083" path="res://Images/fountain2.png" id="3_4s1um"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygbs3"]
-size = Vector2(531, 32)
+size = Vector2(256, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utl3q"]
 size = Vector2(231, 46)
@@ -25,9 +25,11 @@ centered = false
 position = Vector2(-1, 38)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-376.5, 300)
+position = Vector2(-239, 300)
 shape = SubResource("RectangleShape2D_ygbs3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]

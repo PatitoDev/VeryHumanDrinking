@@ -1,0 +1,116 @@
+[gd_scene load_steps=15 format=3 uid="uid://xnxu584c7t7d"]
+
+[ext_resource type="Script" path="res://Scenes/Game/Game.gd" id="1_1mucv"]
+[ext_resource type="Texture2D" uid="uid://c4mfnktnfd4iy" path="res://Images/bg.png" id="2_2aafq"]
+[ext_resource type="PackedScene" uid="uid://bp58g80j8rwvv" path="res://Entities/FlowControlPanel/FlowControlPanel.tscn" id="3_jvdci"]
+[ext_resource type="PackedScene" uid="uid://b22ucm4rdhg5r" path="res://Entities/Hand/Hand.tscn" id="4_ggh2b"]
+[ext_resource type="PackedScene" uid="uid://or84j01ah6c2" path="res://Entities/Faucet/Faucet.tscn" id="5_fcrtk"]
+[ext_resource type="Shader" path="res://Shaders/Pixelation.gdshader" id="6_weq56"]
+[ext_resource type="Texture2D" uid="uid://cmtrpqlbl4mix" path="res://Images/fountainTableFront.png" id="7_0t5rs"]
+[ext_resource type="PackedScene" uid="uid://dr0o6eb3n71u" path="res://Entities/Face/Face.tscn" id="8_vr4t4"]
+[ext_resource type="PackedScene" uid="uid://uieckdtouw1t" path="res://Entities/Cup/Cup.tscn" id="9_i0lmk"]
+[ext_resource type="PackedScene" uid="uid://dv7ebnixy5equ" path="res://WaterScene/WaterScene.tscn" id="10_tilqb"]
+[ext_resource type="PackedScene" uid="uid://dk8motd1dsqwl" path="res://Entities/ScoreUI/ScoreUI.tscn" id="11_1rbnm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4m6vl"]
+shader = ExtResource("6_weq56")
+shader_parameter/pixel_size = 5
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wqm2o"]
+viewport_path = NodePath("CanvasLayer/SubViewportContainer/SubViewport")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6spsv"]
+size = Vector2(89, 180.5)
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_1mucv")
+
+[node name="Bg" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("2_2aafq")
+centered = false
+
+[node name="FlowControlPanel" parent="." instance=ExtResource("3_jvdci")]
+position = Vector2(72, 766)
+
+[node name="Hand" parent="." instance=ExtResource("4_ggh2b")]
+position = Vector2(603, 319)
+
+[node name="Faucet" parent="." node_paths=PackedStringArray("despawnPoint", "vpContainer") instance=ExtResource("5_fcrtk")]
+position = Vector2(376, 649)
+despawnPoint = NodePath("../WaterDespawnPoint")
+vpContainer = NodePath("../CanvasLayer/SubViewportContainer/SubViewport/WaterScene/Camera2D")
+
+[node name="WaterShaderTexture" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_4m6vl")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 1152.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_wqm2o")
+
+[node name="FountainTableFront" type="Sprite2D" parent="."]
+position = Vector2(380, 924)
+scale = Vector2(4, 4)
+texture = ExtResource("7_0t5rs")
+
+[node name="Face" parent="." instance=ExtResource("8_vr4t4")]
+position = Vector2(988, 680)
+
+[node name="Cup" parent="." instance=ExtResource("9_i0lmk")]
+position = Vector2(377, 845)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3699.0
+offset_top = -1227.0
+offset_right = 3699.0
+offset_bottom = -1227.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/SubViewportContainer"]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1152, 1152)
+render_target_update_mode = 4
+
+[node name="WaterScene" parent="CanvasLayer/SubViewportContainer/SubViewport" instance=ExtResource("10_tilqb")]
+
+[node name="ScoreUi" parent="." instance=ExtResource("11_1rbnm")]
+position = Vector2(740, 0)
+
+[node name="EatingCollider" type="Area2D" parent="."]
+position = Vector2(982, 867)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EatingCollider"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_6spsv")
+debug_color = Color(0.886275, 0, 0.807843, 0.419608)
+
+[node name="WaterDespawnPoint" type="Marker2D" parent="."]
+position = Vector2(558, 1332)
+
+[node name="CupRespawnLeft" type="Marker2D" parent="."]
+position = Vector2(-66, 591)
+
+[node name="CupRespawnRight" type="Marker2D" parent="."]
+position = Vector2(1213, 604)
+
+[connection signal="SpawnWater" from="FlowControlPanel" to="." method="_on_flow_control_panel_spawn_water"]
+[connection signal="area_entered" from="EatingCollider" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_shape_entered" from="EatingCollider" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="body_entered" from="EatingCollider" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_shape_entered" from="EatingCollider" to="." method="_on_area_2d_body_shape_entered"]
+
+[editable path="CanvasLayer/SubViewportContainer/SubViewport/WaterScene"]

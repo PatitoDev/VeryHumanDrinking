@@ -1,14 +1,18 @@
 extends Node2D
-
-@onready var sprite = $Face
-var waterCounter = 0;
-
-func _on_water_counter_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	waterCounter += 1;
-	$Label.text = 'Drink: ' + str(waterCounter);
+@onready var animationPlayer = $AnimationPlayer
 
 func setOpenMouth(value: bool):
 	if (value):
-		sprite.frame = 1;
+		animationPlayer.play("Open");
 		return
-	sprite.frame = 0;
+	animationPlayer.play("Close");
+
+func _on_open_mouth_trigger_body_entered(body):
+	if (!body.is_in_group('cup')):
+		return;
+	setOpenMouth(true);
+
+func _on_open_mouth_trigger_body_exited(body):
+	if (!body.is_in_group('cup')):
+		return;
+	setOpenMouth(false);
