@@ -1,9 +1,60 @@
-[gd_scene load_steps=13 format=3 uid="uid://dr0o6eb3n71u"]
+[gd_scene load_steps=21 format=3 uid="uid://dr0o6eb3n71u"]
 
 [ext_resource type="Script" path="res://Entities/Face/Face.gd" id="1_q5l6l"]
 [ext_resource type="Texture2D" uid="uid://bnkgil1px3yh1" path="res://Images/Face.png" id="2_e0w7w"]
 [ext_resource type="Texture2D" uid="uid://jaj1cyl3ke2h" path="res://Images/eyes.png" id="2_ep4d8"]
+[ext_resource type="Texture2D" uid="uid://c8n8em0klfcqw" path="res://Images/tounge.png" id="2_xy6dn"]
 [ext_resource type="Texture2D" uid="uid://dwhm1dvhvv4r4" path="res://Images/gulp.png" id="3_p0fmf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d6yq"]
+atlas = ExtResource("2_xy6dn")
+region = Rect2(0, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v5xl"]
+atlas = ExtResource("2_xy6dn")
+region = Rect2(36, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaj3c"]
+atlas = ExtResource("2_xy6dn")
+region = Rect2(72, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_giom0"]
+atlas = ExtResource("2_xy6dn")
+region = Rect2(108, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b0rbh"]
+atlas = ExtResource("2_xy6dn")
+region = Rect2(144, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6s56"]
+atlas = ExtResource("2_xy6dn")
+region = Rect2(180, 0, 36, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lgvmr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d6yq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4v5xl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oaj3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_giom0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b0rbh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6s56")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14ew4"]
 size = Vector2(476, 536)
@@ -226,6 +277,14 @@ _data = {
 [node name="Face" type="Node2D"]
 script = ExtResource("1_q5l6l")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-43, -39)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_lgvmr")
+autoplay = "default"
+frame_progress = 0.198511
+
 [node name="OpenMouthTrigger" type="Area2D" parent="."]
 position = Vector2(5, 6)
 
@@ -250,7 +309,6 @@ hframes = 8
 frame = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["NotWater"]]
-visible = false
 collision_layer = 3
 collision_mask = 3
 
