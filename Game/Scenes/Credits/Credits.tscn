@@ -118,7 +118,9 @@ gountzjs
 Yeifu_VTY
 jemma1202
 limontechnology
-noahuxui"
+noahuxui
+TonicDev
+Napstal"
 label_settings = SubResource("LabelSettings_hoygu")
 
 [node name="CreditsBtn" type="Button" parent="."]
