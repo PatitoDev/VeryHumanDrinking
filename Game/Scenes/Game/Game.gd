@@ -8,7 +8,7 @@ var addScoreScene = preload("res://Scenes/AddScore/AddScore.tscn");
 
 @onready var cup = $Cup;
 
-var duration = 10;
+var duration = 60;
 var time = 0;
 var waterConsumed = 0;
 var waterWasted = 0;

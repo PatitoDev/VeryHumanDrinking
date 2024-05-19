@@ -45,7 +45,7 @@ patch_margin_bottom = 12
 
 [node name="NinePatchRect2" type="NinePatchRect" parent="."]
 layout_mode = 2
-offset_right = 196.0
+offset_right = 206.0
 offset_bottom = 45.0
 scale = Vector2(4, 4)
 texture = ExtResource("1_gd3yf")
@@ -75,15 +75,15 @@ label_settings = SubResource("LabelSettings_e0smp")
 
 [node name="ScoreLabel" type="Label" parent="."]
 layout_mode = 2
-offset_left = 482.0
-offset_top = 27.0
-offset_right = 747.0
-offset_bottom = 67.0
+offset_left = 528.0
+offset_top = 26.0
+offset_right = 793.0
+offset_bottom = 66.0
 text = "123123"
 label_settings = SubResource("LabelSettings_qdhqt")
 horizontal_alignment = 2
 
-[node name="WaterConsumedLabel" type="Label" parent="."]
+[node name="WaterWastedLabel" type="Label" parent="."]
 layout_mode = 2
 offset_left = 49.0
 offset_top = 121.0
@@ -92,7 +92,7 @@ offset_bottom = 151.0
 text = "Water dranked 21312ml"
 label_settings = SubResource("LabelSettings_l8w71")
 
-[node name="WaterWastedLabel" type="Label" parent="."]
+[node name="WaterConsumedLabel" type="Label" parent="."]
 layout_mode = 2
 offset_left = 49.0
 offset_top = 78.0

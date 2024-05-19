@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://xnxu584c7t7d"]
+[gd_scene load_steps=16 format=3 uid="uid://xnxu584c7t7d"]
 
 [ext_resource type="Script" path="res://Scenes/Game/Game.gd" id="1_1mucv"]
+[ext_resource type="PackedScene" uid="uid://d1y2t7m8gdwj7" path="res://Scenes/Pause/Pause.tscn" id="2_miy2o"]
 [ext_resource type="Texture2D" uid="uid://b0pjn2nbe2sct" path="res://Images/bg2.png" id="2_psaya"]
 [ext_resource type="PackedScene" uid="uid://bp58g80j8rwvv" path="res://Entities/FlowControlPanel/FlowControlPanel.tscn" id="3_jvdci"]
 [ext_resource type="PackedScene" uid="uid://b22ucm4rdhg5r" path="res://Entities/Hand/Hand.tscn" id="4_ggh2b"]
@@ -24,6 +25,8 @@ size = Vector2(89, 180.5)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_1mucv")
+
+[node name="Pause" parent="." instance=ExtResource("2_miy2o")]
 
 [node name="Bg" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)

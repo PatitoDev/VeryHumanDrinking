@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://d1y2t7m8gdwj7"]
+
+[ext_resource type="Script" path="res://Scenes/Pause/Pause.gd" id="1_keuxd"]
+[ext_resource type="FontFile" uid="uid://d2pcyluki87vl" path="res://UI/PeaberryBase.ttf" id="1_sm8nh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p86og"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l7gdf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iq4cs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vn4ai"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hm2v3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ra5tp"]
+font = ExtResource("1_sm8nh")
+font_size = 30
+
+[node name="Pause" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_keuxd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.45098)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -254.0
+offset_top = -165.5
+offset_right = 254.0
+offset_bottom = 165.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+
+[node name="ContinueBtn" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.803922, 0.458824, 1)
+theme_override_fonts/font = ExtResource("1_sm8nh")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_p86og")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l7gdf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_iq4cs")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vn4ai")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hm2v3")
+text = "Continue"
+
+[node name="MainMenuBtn" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.803922, 0.458824, 1)
+theme_override_fonts/font = ExtResource("1_sm8nh")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_p86og")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l7gdf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_iq4cs")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_vn4ai")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hm2v3")
+text = "Main menu"
+
+[node name="Control" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/VBoxContainer/Control"]
+layout_mode = 2
+text = "Volume"
+label_settings = SubResource("LabelSettings_ra5tp")
+horizontal_alignment = 1
+
+[node name="Volume Slider" type="HSlider" parent="CanvasLayer/Control/VBoxContainer/Control"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -12.0
+max_value = 6.0
+
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/VBoxContainer/MainMenuBtn" to="." method="_on_main_menu_btn_pressed"]
+[connection signal="value_changed" from="CanvasLayer/Control/VBoxContainer/Control/Volume Slider" to="." method="_on_volume_slider_value_changed"]

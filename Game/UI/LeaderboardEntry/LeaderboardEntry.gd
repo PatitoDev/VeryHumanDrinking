@@ -10,5 +10,5 @@ func setLabels(rank: int, user: String, score: int, waterConsumed: int, waterWas
 	rank_label.text  = str(rank);
 	user_label.text = user;
 	score_label.text = str(score);
-	water_consumed_label.text = 'Water wasted: ' + str(waterConsumed) + ' ml';
-	water_wasted_label.text = 'Water drank: ' + str(waterWasted) + ' ml';
+	water_consumed_label.text = 'Water drank: ' + str(waterConsumed) + ' ml';
+	water_wasted_label.text = 'Water wasted: ' + str(waterWasted) + ' ml';
