@@ -2,6 +2,30 @@ extends Node2D
 @onready var animationPlayer = $AnimationPlayer
 @onready var gulp_animation_player = $GulpAnimationPlayer
 @onready var eyes = $Eyes
+@onready var openMouthSFXPlayer = $OpenMouthSFXPlayer
+@onready var gluGluSfxPlayer = $GluGluSFXPlayer
+
+var openMouthSFXs = [
+	preload("res://Audio/Human/vo_open_mouth_00.wav"),
+	preload("res://Audio/Human/vo_open_mouth_01.wav"),
+	preload("res://Audio/Human/vo_open_mouth_02.wav")
+]
+
+var gluSFXs = [ 
+	preload("res://Audio/Human/vo_mouth_gluglu_00.wav"),
+	preload("res://Audio/Human/vo_mouth_gluglu_01.wav"),
+	preload("res://Audio/Human/vo_mouth_gluglu_02.wav"),
+	preload("res://Audio/Human/vo_mouth_gluglu_03.wav"),
+	preload("res://Audio/Human/vo_mouth_gluglu_04.wav"),
+	preload("res://Audio/Human/vo_mouth_gluglu_05.wav"),
+	preload("res://Audio/Human/vo_mouth_gluglu_06.wav"),
+	preload("res://Audio/Human/vo_mouth_gluglu_07.wav"),
+	preload("res://Audio/Human/vo_mouth_gluglu_08.wav")
+];
+
+func playGluSFX():
+	gluGluSfxPlayer.stream = gluSFXs.pick_random();
+	gluGluSfxPlayer.play();
 
 func pointEyesTowards(target: Vector2):
 	var angle = rad_to_deg(target.angle_to_point(eyes.global_position));
@@ -14,6 +38,9 @@ func pointEyesTowards(target: Vector2):
 func setOpenMouth(value: bool):
 	if (value):
 		animationPlayer.play("Open");
+		if (!openMouthSFXPlayer.playing):
+			openMouthSFXPlayer.stream = openMouthSFXs.pick_random();
+			openMouthSFXPlayer.play();
 		return
 	animationPlayer.play("Close");
 

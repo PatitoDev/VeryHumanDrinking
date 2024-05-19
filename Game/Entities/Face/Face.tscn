@@ -185,6 +185,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 0]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.55),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"playGluSFX"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_ndclk"]
 length = 0.001
@@ -262,6 +276,12 @@ hframes = 11
 libraries = {
 "": SubResource("AnimationLibrary_7chyg")
 }
+
+[node name="GluGluSFXPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="OpenMouthSFXPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [connection signal="body_entered" from="OpenMouthTrigger" to="." method="_on_open_mouth_trigger_body_entered"]
 [connection signal="body_exited" from="OpenMouthTrigger" to="." method="_on_open_mouth_trigger_body_exited"]
