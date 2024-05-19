@@ -1,9 +1,8 @@
-[gd_scene load_steps=48 format=3 uid="uid://b22ucm4rdhg5r"]
+[gd_scene load_steps=47 format=3 uid="uid://b22ucm4rdhg5r"]
 
 [ext_resource type="Script" path="res://Entities/Hand/Hand.gd" id="1_oijfh"]
 [ext_resource type="Texture2D" uid="uid://ch1707gttjfh5" path="res://Images/hand.png" id="2_kovoe"]
 [ext_resource type="Texture2D" uid="uid://dg32k70stmaao" path="res://Images/armhand.png" id="3_517qm"]
-[ext_resource type="Texture2D" uid="uid://dt6jb7wu4586h" path="res://Images/arm.png" id="4_yrx5q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w50aq"]
 size = Vector2(152, 99)
@@ -594,7 +593,7 @@ shape = SubResource("RectangleShape2D_w50aq")
 [node name="ArmPivot" type="Node2D" parent="."]
 
 [node name="Hand" type="Sprite2D" parent="ArmPivot"]
-position = Vector2(-4, 226)
+position = Vector2(-4, 676)
 scale = Vector2(4, 4)
 texture = ExtResource("3_517qm")
 hframes = 9
@@ -612,11 +611,6 @@ collision_mask = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArmPivot/HandCenter/GrabArea"]
 position = Vector2(-27.5, -8)
 shape = SubResource("RectangleShape2D_ns82g")
-
-[node name="Arm" type="Sprite2D" parent="ArmPivot"]
-position = Vector2(2, 1296)
-scale = Vector2(4, 166.222)
-texture = ExtResource("4_yrx5q")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

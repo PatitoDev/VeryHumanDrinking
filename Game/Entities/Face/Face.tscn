@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dr0o6eb3n71u"]
+[gd_scene load_steps=13 format=3 uid="uid://dr0o6eb3n71u"]
 
 [ext_resource type="Script" path="res://Entities/Face/Face.gd" id="1_q5l6l"]
-[ext_resource type="Texture2D" uid="uid://bnkgil1px3yh1" path="res://Images/Face.png" id="2_e0w7w"]
+[ext_resource type="Texture2D" uid="uid://jaj1cyl3ke2h" path="res://Images/eyes.png" id="2_ep4d8"]
+[ext_resource type="Texture2D" uid="uid://dwhm1dvhvv4r4" path="res://Images/gulp.png" id="3_p0fmf"]
+[ext_resource type="Texture2D" uid="uid://55bmmo50vle5" path="res://Images/facenoeyes.png" id="3_ufym6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14ew4"]
 size = Vector2(476, 536)
@@ -45,6 +47,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [PackedVector2Array(-166, -328, -63, -303, -51, -246, -60, -131, -75, 557, -115, 566, -118, -247, -132, -274, -159, -283, -181, -292, -182, -317)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Eyes:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-43, -116)]
+}
 
 [sub_resource type="Animation" id="Animation_frv16"]
 resource_name = "Open"
@@ -85,6 +99,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [PackedVector2Array(-166, -328, -63, -303, -51, -246, -60, -131, -75, 557, -115, 566, -118, -247, -132, -274, -159, -283, -181, -292, -182, -317)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Eyes:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(33, -140)]
+}
 
 [sub_resource type="Animation" id="Animation_y3ghp"]
 length = 0.001
@@ -124,12 +150,61 @@ tracks/2/keys = {
 "update": 1,
 "values": [PackedVector2Array(-166, -328, -63, -303, -51, -246, -60, -131, -66, -70, -115, -69, -118, -247, -132, -274, -159, -283, -181, -292, -182, -317)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Eyes:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-43, -116)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_171u3"]
 _data = {
 "Close": SubResource("Animation_6m7qg"),
 "Open": SubResource("Animation_frv16"),
 "RESET": SubResource("Animation_y3ghp")
+}
+
+[sub_resource type="Animation" id="Animation_s7trk"]
+resource_name = "gulp"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.95),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 0]
+}
+
+[sub_resource type="Animation" id="Animation_ndclk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7chyg"]
+_data = {
+"RESET": SubResource("Animation_ndclk"),
+"gulp": SubResource("Animation_s7trk")
 }
 
 [node name="Face" type="Node2D"]
@@ -143,14 +218,22 @@ position = Vector2(-82, -34)
 shape = SubResource("RectangleShape2D_14ew4")
 debug_color = Color(0.733333, 0.458824, 0.309804, 0.419608)
 
+[node name="Eyes" type="Sprite2D" parent="."]
+position = Vector2(-43, -116)
+scale = Vector2(4, 4)
+texture = ExtResource("2_ep4d8")
+hframes = 6
+frame = 5
+
 [node name="Face" type="Sprite2D" parent="."]
 position = Vector2(1, 146)
 scale = Vector2(4, 4)
-texture = ExtResource("2_e0w7w")
+texture = ExtResource("3_ufym6")
 hframes = 2
 frame = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["NotWater"]]
+visible = false
 collision_layer = 3
 collision_mask = 3
 
@@ -165,6 +248,19 @@ polygon = PackedVector2Array(-166, -328, -63, -303, -51, -246, -60, -131, -66, -
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_171u3")
+}
+autoplay = "Close"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-207, -272)
+scale = Vector2(4, 4)
+texture = ExtResource("3_p0fmf")
+centered = false
+hframes = 11
+
+[node name="GulpAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7chyg")
 }
 
 [connection signal="body_entered" from="OpenMouthTrigger" to="." method="_on_open_mouth_trigger_body_entered"]

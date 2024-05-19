@@ -17,6 +17,6 @@ void fragment(){
 	if (COLOR.a < 0.8){
 		COLOR.a = 0.0;
 	} else {
-		COLOR = vec4(0.451,0.937,0.969, 1.0);
+		COLOR = vec4(0.451,0.937,0.969, 0.7);
 	}
 }

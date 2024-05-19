@@ -13,7 +13,7 @@ size = Vector2(17.7459, 88.0152)
 size = Vector2(72, 107.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fpenu"]
-size = Vector2(87, 119)
+size = Vector2(95, 124)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a06xb"]
 size = Vector2(62, 104)
@@ -68,7 +68,7 @@ collision_layer = 8
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaSFXs"]
-position = Vector2(0.5, -8.5)
+position = Vector2(0.5, -6)
 shape = SubResource("RectangleShape2D_fpenu")
 
 [node name="WaterFillingCollider" type="Area2D" parent="."]

@@ -1,28 +1,119 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4mg483mtka6n"]
+[gd_scene load_steps=11 format=3 uid="uid://b4mg483mtka6n"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu/MainMenu.gd" id="1_p1k5d"]
-[ext_resource type="Texture2D" uid="uid://c4mfnktnfd4iy" path="res://Images/bg.png" id="2_ntekt"]
+[ext_resource type="Texture2D" uid="uid://b0pjn2nbe2sct" path="res://Images/bg2.png" id="2_y2rr7"]
+[ext_resource type="FontFile" uid="uid://d2pcyluki87vl" path="res://UI/PeaberryBase.ttf" id="3_778yw"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4f56f"]
+font = ExtResource("3_778yw")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_r1y3h"]
+font = ExtResource("3_778yw")
+font_size = 25
+font_color = Color(0.85098, 0.85098, 0.85098, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wexwf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fnkf6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u06vf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17ouk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5n3k6"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_p1k5d")
 
 [node name="Bg" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
-texture = ExtResource("2_ntekt")
+texture = ExtResource("2_y2rr7")
 centered = false
 
-[node name="Button" type="Button" parent="."]
-offset_left = 376.0
-offset_top = 482.0
-offset_right = 830.0
-offset_bottom = 658.0
-text = "Start"
-
 [node name="Label" type="Label" parent="."]
-offset_left = 495.0
-offset_top = 333.0
-offset_right = 694.0
-offset_bottom = 396.0
+offset_left = 98.0
+offset_top = 181.0
+offset_right = 648.0
+offset_bottom = 244.0
 text = "Very Human Drinking"
+label_settings = SubResource("LabelSettings_4f56f")
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Label2" type="Label" parent="."]
+offset_left = 104.0
+offset_top = 279.0
+offset_right = 909.0
+offset_bottom = 508.0
+text = "Drink as much water as you can before the 60 seconds timer
+runs out.
+
+Avoid wasting water or your water bill will be high :(
+
+You can rotate your very human hand by pressing A and D. 
+
+Remember that you grab things with your hand not the mouse."
+label_settings = SubResource("LabelSettings_r1y3h")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 108.0
+offset_top = 573.0
+offset_right = 379.0
+offset_bottom = 733.0
+theme_override_constants/separation = 30
+
+[node name="StartBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.803922, 0.458824, 1)
+theme_override_fonts/font = ExtResource("3_778yw")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wexwf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fnkf6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u06vf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_17ouk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5n3k6")
+text = "Start"
+alignment = 0
+
+[node name="EndlessMode" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.803922, 0.458824, 1)
+theme_override_fonts/font = ExtResource("3_778yw")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wexwf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fnkf6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u06vf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_17ouk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5n3k6")
+text = "Endless mode"
+alignment = 0
+
+[node name="LeaderboardBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.803922, 0.458824, 1)
+theme_override_fonts/font = ExtResource("3_778yw")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wexwf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fnkf6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u06vf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_17ouk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5n3k6")
+text = "Leaderboard"
+alignment = 0
+
+[node name="CreditsBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(1, 0.803922, 0.458824, 1)
+theme_override_fonts/font = ExtResource("3_778yw")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wexwf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_fnkf6")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u06vf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_17ouk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5n3k6")
+text = "Credits"
+alignment = 0
+
+[connection signal="pressed" from="VBoxContainer/StartBtn" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/EndlessMode" to="." method="_on_endless_mode_pressed"]
+[connection signal="pressed" from="VBoxContainer/LeaderboardBtn" to="." method="_on_leaderboard_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsBtn" to="." method="_on_credits_btn_pressed"]
