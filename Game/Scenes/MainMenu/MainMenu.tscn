@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b4mg483mtka6n"]
+[gd_scene load_steps=12 format=3 uid="uid://b4mg483mtka6n"]
 
 [ext_resource type="Script" path="res://Scenes/MainMenu/MainMenu.gd" id="1_p1k5d"]
 [ext_resource type="Texture2D" uid="uid://b0pjn2nbe2sct" path="res://Images/bg2.png" id="2_y2rr7"]
 [ext_resource type="FontFile" uid="uid://d2pcyluki87vl" path="res://UI/PeaberryBase.ttf" id="3_778yw"]
+[ext_resource type="AudioStream" uid="uid://cmix5v23gugij" path="res://Audio/Music/veryveryhumandrinking.wav" id="4_naujc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4f56f"]
 font = ExtResource("3_778yw")
@@ -112,6 +113,11 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_17ouk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5n3k6")
 text = "Credits"
 alignment = 0
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_naujc")
+autoplay = true
+bus = &"Musica"
 
 [connection signal="pressed" from="VBoxContainer/StartBtn" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/EndlessMode" to="." method="_on_endless_mode_pressed"]

@@ -1,16 +1,17 @@
 [gd_scene load_steps=13 format=3 uid="uid://dr0o6eb3n71u"]
 
 [ext_resource type="Script" path="res://Entities/Face/Face.gd" id="1_q5l6l"]
+[ext_resource type="Texture2D" uid="uid://bnkgil1px3yh1" path="res://Images/Face.png" id="2_e0w7w"]
 [ext_resource type="Texture2D" uid="uid://jaj1cyl3ke2h" path="res://Images/eyes.png" id="2_ep4d8"]
 [ext_resource type="Texture2D" uid="uid://dwhm1dvhvv4r4" path="res://Images/gulp.png" id="3_p0fmf"]
-[ext_resource type="Texture2D" uid="uid://55bmmo50vle5" path="res://Images/facenoeyes.png" id="3_ufym6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14ew4"]
 size = Vector2(476, 536)
 
 [sub_resource type="Animation" id="Animation_6m7qg"]
 resource_name = "Close"
-length = 0.01
+length = 0.3
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -18,10 +19,10 @@ tracks/0/path = NodePath("Face:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0]
+"values": [0, 1, 2, 3]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -62,7 +63,8 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_frv16"]
 resource_name = "Open"
-length = 0.01
+length = 0.3
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -70,10 +72,10 @@ tracks/0/path = NodePath("Face:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [1]
+"values": [4, 5, 6, 7]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -240,10 +242,11 @@ hframes = 6
 frame = 5
 
 [node name="Face" type="Sprite2D" parent="."]
-position = Vector2(1, 146)
+position = Vector2(-331, -519)
 scale = Vector2(4, 4)
-texture = ExtResource("3_ufym6")
-hframes = 2
+texture = ExtResource("2_e0w7w")
+centered = false
+hframes = 8
 frame = 1
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." groups=["NotWater"]]

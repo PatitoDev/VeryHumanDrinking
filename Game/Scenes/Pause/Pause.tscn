@@ -22,6 +22,7 @@ process_mode = 3
 script = ExtResource("1_keuxd")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3

@@ -24,4 +24,5 @@ func _on_continue_btn_pressed():
 func _on_main_menu_btn_pressed():
 	canvas.visible = false;
 	get_tree().paused = false;
+	get_parent().get_parent().get_node('MainMenu').playMusic();
 	get_parent().queue_free();

@@ -1,5 +1,9 @@
 extends Node2D
 
+@onready var musicPlayer = $Music
+const bgMusicLastSeconds = preload("res://Audio/Music/veryveryhumandrinking200bpm.wav")
+const bgMusic = preload("res://Audio/Music/veryveryhumandrinking.wav")
+
 var addScoreScene = preload("res://Scenes/AddScore/AddScore.tscn");
 
 @onready var face = $Face
@@ -15,9 +19,12 @@ var waterWasted = 0;
 
 var isTimed = false;
 var hasEnded = false;
+var lastSecondsMusicPlayed = false;
 
 func _ready():
 	score_ui.updateScore(waterConsumed)
+	musicPlayer.stream = bgMusic;
+	musicPlayer.play(0);
 	if !isTimed:
 		score_ui.updateTime(0);
 	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -26,8 +33,15 @@ func _process(delta):
 	if (!isTimed || hasEnded):
 		return;
 	time += delta;
-	score_ui.updateTime(floor(duration - time));
-	if (duration - time) <= 0:
+	var timeLeft = duration - time;
+	
+	score_ui.updateTime(floor(timeLeft));
+	if (timeLeft) <= 10 && !lastSecondsMusicPlayed:
+		musicPlayer.stream = bgMusicLastSeconds;
+		musicPlayer.play(0);
+		lastSecondsMusicPlayed = true;
+	
+	if (timeLeft) <= 0:
 		hasEnded = true;
 		end();
 

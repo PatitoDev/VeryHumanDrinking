@@ -7,6 +7,7 @@ const entryScene = preload("res://UI/LeaderboardEntry/LeaderboardEntry.tscn");
 @onready var getLeaderboardHttpRequest = $CanvasLayer/LeaderboardPanel/GetLeaderboardHttpRequest;
 
 func _on_back_btn_pressed():
+	get_parent().get_node('MainMenu').playMusic();
 	self.queue_free();
 
 func _ready():

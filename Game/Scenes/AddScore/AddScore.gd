@@ -25,7 +25,6 @@ func setScore(waterWasted: int, waterConsumed: int):
 	score_label.text = str(self.score);
 	water_wasted_label.text = str(self.waterWasted) + ' ml';
 	water_drank_label.text = str(self.waterConsumed) + ' ml';
-	
 
 func _on_player_name_input_text_changed():
 	isValid = (playerNameInput.text as String).length() > 1;
