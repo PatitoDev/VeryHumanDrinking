@@ -1,42 +1,43 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjk5qabtm3m60"]
+[gd_scene load_steps=16 format=3 uid="uid://cdkpcrigljmgy"]
 
-[ext_resource type="Script" path="res://UI/Leaderboard/Leaderboard.gd" id="1_1vxea"]
-[ext_resource type="Texture2D" uid="uid://b70dd5yx8r6mj" path="res://Images/Panels.png" id="1_10suk"]
-[ext_resource type="FontFile" uid="uid://d2pcyluki87vl" path="res://UI/PeaberryBase.ttf" id="2_i7coo"]
+[ext_resource type="Script" path="res://Scenes/AddScore/AddScore.gd" id="1_3yrq1"]
+[ext_resource type="Texture2D" uid="uid://b70dd5yx8r6mj" path="res://Images/Panels.png" id="1_fc3l3"]
+[ext_resource type="FontFile" uid="uid://d2pcyluki87vl" path="res://UI/PeaberryBase.ttf" id="2_b0fk4"]
+[ext_resource type="Texture2D" uid="uid://b0pjn2nbe2sct" path="res://Images/bg2.png" id="3_oyj6n"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_4ofos"]
-font = ExtResource("2_i7coo")
+[sub_resource type="LabelSettings" id="LabelSettings_ps7r7"]
+font = ExtResource("2_b0fk4")
 font_size = 64
 font_color = Color(0.2, 0.235294, 0.341176, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_vc2l7"]
-font = ExtResource("2_i7coo")
+[sub_resource type="LabelSettings" id="LabelSettings_o26in"]
+font = ExtResource("2_b0fk4")
 font_size = 32
 font_color = Color(0.2, 0.235294, 0.341176, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_jdfj3"]
-font = ExtResource("2_i7coo")
+[sub_resource type="LabelSettings" id="LabelSettings_mdd41"]
+font = ExtResource("2_b0fk4")
 font_size = 32
 font_color = Color(0.2, 0.235294, 0.341176, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f84h7"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5g0h0"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6sw1v"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y23io"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pq7kc"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wgyoa"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ld60m"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tmwrr"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mg5u8"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16u7t"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sp1ys"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vyruj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pi5k5"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_skemd"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gh3rb"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cgrwt"]
 
-[node name="Leaderboard" type="Node2D"]
-script = ExtResource("1_1vxea")
+[node name="AddScore" type="Node2D"]
+script = ExtResource("1_3yrq1")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -62,7 +63,7 @@ offset_bottom = -101.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
-texture = ExtResource("1_10suk")
+texture = ExtResource("1_fc3l3")
 region_rect = Rect2(14, 24, 36, 36)
 patch_margin_left = 10
 patch_margin_top = 10
@@ -76,7 +77,7 @@ offset_top = 584.0
 offset_right = 688.0
 offset_bottom = 648.0
 text = "343456"
-label_settings = SubResource("LabelSettings_4ofos")
+label_settings = SubResource("LabelSettings_ps7r7")
 
 [node name="Label3" type="Label" parent="CanvasLayer/ScorePanel"]
 layout_mode = 0
@@ -85,7 +86,7 @@ offset_top = 542.0
 offset_right = 618.0
 offset_bottom = 574.0
 text = "Score"
-label_settings = SubResource("LabelSettings_vc2l7")
+label_settings = SubResource("LabelSettings_o26in")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ScorePanel"]
 layout_mode = 0
@@ -102,12 +103,12 @@ theme_override_constants/separation = 20
 [node name="Label" type="Label" parent="CanvasLayer/ScorePanel/HBoxContainer/Control2"]
 layout_mode = 2
 text = "Water Wasted"
-label_settings = SubResource("LabelSettings_vc2l7")
+label_settings = SubResource("LabelSettings_o26in")
 
 [node name="Label2" type="Label" parent="CanvasLayer/ScorePanel/HBoxContainer/Control2"]
 layout_mode = 2
 text = "Water drank"
-label_settings = SubResource("LabelSettings_vc2l7")
+label_settings = SubResource("LabelSettings_o26in")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ScorePanel/HBoxContainer"]
 layout_mode = 2
@@ -116,12 +117,12 @@ theme_override_constants/separation = 20
 [node name="WaterWastedLabel" type="Label" parent="CanvasLayer/ScorePanel/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "343456 ml"
-label_settings = SubResource("LabelSettings_jdfj3")
+label_settings = SubResource("LabelSettings_mdd41")
 
 [node name="WaterDrankLabel" type="Label" parent="CanvasLayer/ScorePanel/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "343456 ml"
-label_settings = SubResource("LabelSettings_vc2l7")
+label_settings = SubResource("LabelSettings_o26in")
 
 [node name="BtnEnabledImg" type="NinePatchRect" parent="CanvasLayer/ScorePanel"]
 layout_mode = 0
@@ -130,7 +131,7 @@ offset_top = 668.0
 offset_right = 652.0
 offset_bottom = 683.0
 scale = Vector2(4, 4)
-texture = ExtResource("1_10suk")
+texture = ExtResource("1_fc3l3")
 region_rect = Rect2(142, 24, 36, 15)
 patch_margin_left = 6
 patch_margin_top = 5
@@ -145,7 +146,7 @@ offset_top = 668.0
 offset_right = 651.0
 offset_bottom = 683.0
 scale = Vector2(4, 4)
-texture = ExtResource("1_10suk")
+texture = ExtResource("1_fc3l3")
 region_rect = Rect2(142, 42, 35, 15)
 patch_margin_left = 6
 patch_margin_top = 5
@@ -165,12 +166,12 @@ theme_override_colors/font_focus_color = Color(0.101961, 0.109804, 0.172549, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.101961, 0.109804, 0.172549, 1)
 theme_override_colors/font_disabled_color = Color(0.101961, 0.109804, 0.172549, 1)
 theme_override_colors/font_outline_color = Color(0.101961, 0.109804, 0.172549, 1)
-theme_override_fonts/font = ExtResource("2_i7coo")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_f84h7")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_6sw1v")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_pq7kc")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_ld60m")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mg5u8")
+theme_override_fonts/font = ExtResource("2_b0fk4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_5g0h0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_y23io")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wgyoa")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_tmwrr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_16u7t")
 text = "Add to leaderboard"
 
 [node name="PlayerName" type="NinePatchRect" parent="CanvasLayer/ScorePanel"]
@@ -180,7 +181,7 @@ offset_top = 669.0
 offset_right = 379.0
 offset_bottom = 684.0
 scale = Vector2(4, 4)
-texture = ExtResource("1_10suk")
+texture = ExtResource("1_fc3l3")
 region_rect = Rect2(97, 37, 34, 14)
 patch_margin_left = 4
 patch_margin_top = 4
@@ -194,67 +195,19 @@ offset_top = 688.0
 offset_right = 580.0
 offset_bottom = 721.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("2_i7coo")
+theme_override_fonts/font = ExtResource("2_b0fk4")
 theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxEmpty_sp1ys")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_pi5k5")
-theme_override_styles/read_only = SubResource("StyleBoxEmpty_gh3rb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vyruj")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_skemd")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_cgrwt")
 placeholder_text = "Player name"
 caret_blink = true
 
 [node name="PostEntryHttpRequest" type="HTTPRequest" parent="CanvasLayer/ScorePanel"]
 
-[node name="LeaderboardPanel" type="Control" parent="CanvasLayer"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/LeaderboardPanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 105.0
-offset_top = 68.0
-offset_right = 333.0
-offset_bottom = 297.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Bg2" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
-texture = ExtResource("1_10suk")
-region_rect = Rect2(14, 24, 36, 36)
-patch_margin_left = 10
-patch_margin_top = 10
-patch_margin_right = 11
-patch_margin_bottom = 12
+texture = ExtResource("3_oyj6n")
+centered = false
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer/LeaderboardPanel"]
-layout_mode = 0
-offset_left = 364.0
-offset_top = 156.0
-offset_right = 796.0
-offset_bottom = 220.0
-text = "Leaderboard"
-label_settings = SubResource("LabelSettings_4ofos")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/LeaderboardPanel"]
-layout_mode = 0
-offset_left = 162.0
-offset_top = 244.0
-offset_right = 986.0
-offset_bottom = 953.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LeaderboardPanel/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/separation = 5
-
-[node name="GetLeaderboardHttpRequest" type="HTTPRequest" parent="CanvasLayer/LeaderboardPanel"]
-
-[connection signal="pressed" from="CanvasLayer/ScorePanel/AddToLeadearboardBtn" to="." method="_on_add_to_leadearboard_btn_pressed"]
-[connection signal="text_changed" from="CanvasLayer/ScorePanel/PlayerNameInput" to="." method="_on_player_name_input_text_changed"]
 [connection signal="request_completed" from="CanvasLayer/ScorePanel/PostEntryHttpRequest" to="." method="_on_post_entry_http_request_request_completed"]
-[connection signal="request_completed" from="CanvasLayer/LeaderboardPanel/GetLeaderboardHttpRequest" to="." method="_on_get_leaderboard_http_request_request_completed"]

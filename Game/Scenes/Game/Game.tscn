@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://xnxu584c7t7d"]
 
 [ext_resource type="Script" path="res://Scenes/Game/Game.gd" id="1_1mucv"]
-[ext_resource type="Texture2D" uid="uid://c4mfnktnfd4iy" path="res://Images/bg.png" id="2_2aafq"]
+[ext_resource type="Texture2D" uid="uid://b0pjn2nbe2sct" path="res://Images/bg2.png" id="2_psaya"]
 [ext_resource type="PackedScene" uid="uid://bp58g80j8rwvv" path="res://Entities/FlowControlPanel/FlowControlPanel.tscn" id="3_jvdci"]
 [ext_resource type="PackedScene" uid="uid://b22ucm4rdhg5r" path="res://Entities/Hand/Hand.tscn" id="4_ggh2b"]
 [ext_resource type="PackedScene" uid="uid://or84j01ah6c2" path="res://Entities/Faucet/Faucet.tscn" id="5_fcrtk"]
@@ -27,7 +27,7 @@ script = ExtResource("1_1mucv")
 
 [node name="Bg" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
-texture = ExtResource("2_2aafq")
+texture = ExtResource("2_psaya")
 centered = false
 
 [node name="FlowControlPanel" parent="." instance=ExtResource("3_jvdci")]

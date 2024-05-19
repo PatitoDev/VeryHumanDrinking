@@ -1,0 +1,139 @@
+[gd_scene load_steps=12 format=3 uid="uid://c1xothi664r6n"]
+
+[ext_resource type="Texture2D" uid="uid://b0pjn2nbe2sct" path="res://Images/bg2.png" id="1_aah7y"]
+[ext_resource type="Script" path="res://Scenes/Credits/Credits.gd" id="1_uv60t"]
+[ext_resource type="FontFile" uid="uid://d2pcyluki87vl" path="res://UI/PeaberryBase.ttf" id="2_8mjpr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m0x6g"]
+font = ExtResource("2_8mjpr")
+font_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_raky5"]
+font = ExtResource("2_8mjpr")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_hoygu"]
+font = ExtResource("2_8mjpr")
+font_size = 30
+font_color = Color(1, 1, 0.623529, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gihi5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_70vvf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ionfu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yhuhd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ospc8"]
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_uv60t")
+
+[node name="Bg2" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_aah7y")
+centered = false
+
+[node name="Label" type="Label" parent="."]
+offset_left = 131.0
+offset_top = 186.0
+offset_right = 333.0
+offset_bottom = 237.0
+text = "Credits
+"
+label_settings = SubResource("LabelSettings_m0x6g")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 134.0
+offset_top = 292.0
+offset_right = 336.0
+offset_bottom = 343.0
+text = "Developer & Artist"
+label_settings = SubResource("LabelSettings_raky5")
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 137.0
+offset_top = 337.0
+offset_right = 443.0
+offset_bottom = 388.0
+text = "Patitodev - twitch.tv/patitodev"
+label_settings = SubResource("LabelSettings_hoygu")
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 134.0
+offset_top = 397.0
+offset_right = 440.0
+offset_bottom = 448.0
+text = "Music & SFXs"
+label_settings = SubResource("LabelSettings_raky5")
+
+[node name="Label6" type="Label" parent="."]
+offset_left = 134.0
+offset_top = 506.0
+offset_right = 1100.0
+offset_bottom = 571.0
+text = "Moral support and constant criticism in the form of twitch
+chat spam"
+label_settings = SubResource("LabelSettings_raky5")
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 137.0
+offset_top = 442.0
+offset_right = 708.0
+offset_bottom = 493.0
+text = "Anncinnamon - twitch.tv/anncinnamon"
+label_settings = SubResource("LabelSettings_hoygu")
+
+[node name="Label7" type="Label" parent="."]
+offset_left = 133.0
+offset_top = 597.0
+offset_right = 443.0
+offset_bottom = 1017.0
+text = "silverknight3
+ssmatiuri
+SaintCaleuche
+BlurSoul_
+ckmu32
+EseMismoBruno
+Bulbsum
+danirod_
+dannywolfmx2
+DHardySD
+fabiabi1234657
+elVagoTech"
+label_settings = SubResource("LabelSettings_hoygu")
+
+[node name="Label8" type="Label" parent="."]
+offset_left = 512.0
+offset_top = 598.0
+offset_right = 807.0
+offset_bottom = 1006.0
+text = "andresaltv
+MatxerOn
+Pierito95RsNg
+Lam277
+inc0gn1t_94610
+gountzjs
+Yeifu_VTY
+jemma1202
+"
+label_settings = SubResource("LabelSettings_hoygu")
+
+[node name="CreditsBtn" type="Button" parent="."]
+offset_left = 132.0
+offset_top = 132.0
+offset_right = 405.0
+offset_bottom = 172.0
+theme_override_colors/font_hover_color = Color(1, 0.803922, 0.458824, 1)
+theme_override_fonts/font = ExtResource("2_8mjpr")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gihi5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_70vvf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ionfu")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yhuhd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ospc8")
+text = "Back to menu"
+alignment = 0
+
+[connection signal="pressed" from="CreditsBtn" to="." method="_on_credits_btn_pressed"]
