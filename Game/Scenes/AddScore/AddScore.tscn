@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cdkpcrigljmgy"]
+[gd_scene load_steps=21 format=3 uid="uid://cdkpcrigljmgy"]
 
 [ext_resource type="Script" path="res://Scenes/AddScore/AddScore.gd" id="1_3yrq1"]
 [ext_resource type="Texture2D" uid="uid://b70dd5yx8r6mj" path="res://Images/Panels.png" id="1_fc3l3"]
@@ -36,6 +36,16 @@ font_color = Color(0.2, 0.235294, 0.341176, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cgrwt"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ki4h2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6r1ua"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_674bt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_phqx7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3sfsw"]
+
 [node name="AddScore" type="Node2D"]
 script = ExtResource("1_3yrq1")
 
@@ -72,20 +82,21 @@ patch_margin_bottom = 12
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/ScorePanel"]
 layout_mode = 0
-offset_left = 448.0
+offset_left = 284.0
 offset_top = 584.0
-offset_right = 688.0
+offset_right = 814.0
 offset_bottom = 648.0
 text = "343456"
 label_settings = SubResource("LabelSettings_ps7r7")
+horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="CanvasLayer/ScorePanel"]
 layout_mode = 0
-offset_left = 522.0
-offset_top = 542.0
-offset_right = 618.0
-offset_bottom = 574.0
-text = "Score"
+offset_left = 413.0
+offset_top = 541.0
+offset_right = 703.0
+offset_bottom = 573.0
+text = "Efficiency score"
 label_settings = SubResource("LabelSettings_o26in")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ScorePanel"]
@@ -118,11 +129,13 @@ theme_override_constants/separation = 20
 layout_mode = 2
 text = "343456 ml"
 label_settings = SubResource("LabelSettings_mdd41")
+horizontal_alignment = 2
 
 [node name="WaterDrankLabel" type="Label" parent="CanvasLayer/ScorePanel/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "343456 ml"
+text = "1"
 label_settings = SubResource("LabelSettings_o26in")
+horizontal_alignment = 2
 
 [node name="BtnEnabledImg" type="NinePatchRect" parent="CanvasLayer/ScorePanel"]
 layout_mode = 0
@@ -205,9 +218,28 @@ caret_blink = true
 
 [node name="PostEntryHttpRequest" type="HTTPRequest" parent="CanvasLayer/ScorePanel"]
 
+[node name="SkipBtn" type="Button" parent="CanvasLayer/ScorePanel"]
+offset_left = 674.0
+offset_top = 830.0
+offset_right = 838.0
+offset_bottom = 870.0
+theme_override_colors/font_hover_color = Color(1, 0.803922, 0.458824, 1)
+theme_override_fonts/font = ExtResource("2_b0fk4")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ki4h2")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6r1ua")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_674bt")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_phqx7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3sfsw")
+text = "Skip"
+alignment = 0
+
 [node name="Bg2" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
 texture = ExtResource("3_oyj6n")
 centered = false
 
+[connection signal="pressed" from="CanvasLayer/ScorePanel/AddToLeadearboardBtn" to="." method="_on_add_to_leadearboard_btn_pressed"]
+[connection signal="text_changed" from="CanvasLayer/ScorePanel/PlayerNameInput" to="." method="_on_player_name_input_text_changed"]
 [connection signal="request_completed" from="CanvasLayer/ScorePanel/PostEntryHttpRequest" to="." method="_on_post_entry_http_request_request_completed"]
+[connection signal="pressed" from="CanvasLayer/ScorePanel/SkipBtn" to="." method="_on_skip_btn_pressed"]

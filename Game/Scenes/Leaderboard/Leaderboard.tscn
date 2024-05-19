@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0a3w5cxft3t8"]
+[gd_scene load_steps=11 format=3 uid="uid://d0a3w5cxft3t8"]
 
 [ext_resource type="Texture2D" uid="uid://b70dd5yx8r6mj" path="res://Images/Panels.png" id="1_b0lju"]
+[ext_resource type="Script" path="res://Scenes/Leaderboard/Leaderboard.gd" id="1_wvhpn"]
 [ext_resource type="FontFile" uid="uid://d2pcyluki87vl" path="res://UI/PeaberryBase.ttf" id="2_0yysq"]
 [ext_resource type="Texture2D" uid="uid://b0pjn2nbe2sct" path="res://Images/bg2.png" id="3_cjv68"]
 
@@ -9,7 +10,18 @@ font = ExtResource("2_0yysq")
 font_size = 64
 font_color = Color(0.2, 0.235294, 0.341176, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e6xxr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2mwy3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fwaqi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q5htw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fgjwd"]
+
 [node name="Leaderboard" type="Node2D"]
+script = ExtResource("1_wvhpn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -27,9 +39,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 105.0
-offset_top = 68.0
+offset_top = 141.0
 offset_right = 333.0
-offset_bottom = 297.0
+offset_bottom = 362.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
@@ -40,29 +52,48 @@ patch_margin_top = 10
 patch_margin_right = 11
 patch_margin_bottom = 12
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer/LeaderboardPanel"]
+[node name="Title" type="Label" parent="CanvasLayer/LeaderboardPanel"]
 layout_mode = 0
-offset_left = 364.0
-offset_top = 156.0
-offset_right = 796.0
-offset_bottom = 220.0
+offset_left = 357.0
+offset_top = 220.0
+offset_right = 789.0
+offset_bottom = 284.0
 text = "Leaderboard"
 label_settings = SubResource("LabelSettings_aitol")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/LeaderboardPanel"]
 layout_mode = 0
 offset_left = 162.0
-offset_top = 244.0
+offset_top = 316.0
 offset_right = 986.0
-offset_bottom = 953.0
+offset_bottom = 982.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/LeaderboardPanel/ScrollContainer"]
 layout_mode = 2
-theme_override_constants/separation = 5
+theme_override_constants/separation = 180
 
 [node name="GetLeaderboardHttpRequest" type="HTTPRequest" parent="CanvasLayer/LeaderboardPanel"]
+
+[node name="BackBtn" type="Button" parent="CanvasLayer"]
+offset_left = 138.0
+offset_top = 93.0
+offset_right = 411.0
+offset_bottom = 133.0
+theme_override_colors/font_hover_color = Color(1, 0.803922, 0.458824, 1)
+theme_override_fonts/font = ExtResource("2_0yysq")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxEmpty_e6xxr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2mwy3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fwaqi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q5htw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fgjwd")
+text = "Back to menu"
+alignment = 0
 
 [node name="Bg2" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
 texture = ExtResource("3_cjv68")
 centered = false
+
+[connection signal="request_completed" from="CanvasLayer/LeaderboardPanel/GetLeaderboardHttpRequest" to="." method="_on_get_leaderboard_http_request_request_completed"]
+[connection signal="pressed" from="CanvasLayer/BackBtn" to="." method="_on_back_btn_pressed"]

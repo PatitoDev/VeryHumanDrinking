@@ -1,36 +1,102 @@
-[gd_scene load_steps=4 format=3 uid="uid://ba1g0nbs3orjx"]
+[gd_scene load_steps=8 format=3 uid="uid://ba1g0nbs3orjx"]
 
 [ext_resource type="Script" path="res://UI/LeaderboardEntry/LeaderboardEntry.gd" id="1_767kj"]
+[ext_resource type="Texture2D" uid="uid://b70dd5yx8r6mj" path="res://Images/Panels.png" id="1_gd3yf"]
 [ext_resource type="FontFile" uid="uid://d2pcyluki87vl" path="res://UI/PeaberryBase.ttf" id="2_gpdh6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_qdhqt"]
 font = ExtResource("2_gpdh6")
-font_color = Color(0, 0, 0, 1)
+font_size = 40
 
-[node name="LeaderboardEntry" type="HBoxContainer"]
+[sub_resource type="LabelSettings" id="LabelSettings_e0smp"]
+font = ExtResource("2_gpdh6")
+font_size = 40
+font_color = Color(1, 1, 0.556863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l8w71"]
+font = ExtResource("2_gpdh6")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_rppqr"]
+font = ExtResource("2_gpdh6")
+font_size = 25
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 618.0
+offset_bottom = 182.0
 script = ExtResource("1_767kj")
+metadata/_edit_horizontal_guides_ = [57.0]
+metadata/_edit_vertical_guides_ = [48.0]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 2
+offset_right = 152.0
+offset_bottom = 41.0
+scale = Vector2(4, 4)
+texture = ExtResource("1_gd3yf")
+region_rect = Rect2(130, 62, 38, 37)
+patch_margin_left = 12
+patch_margin_top = 12
+patch_margin_right = 13
+patch_margin_bottom = 12
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="."]
+layout_mode = 2
+offset_right = 196.0
+offset_bottom = 45.0
+scale = Vector2(4, 4)
+texture = ExtResource("1_gd3yf")
+region_rect = Rect2(95, 21, 35, 15)
+patch_margin_left = 12
+patch_margin_top = 10
+patch_margin_right = 13
+patch_margin_bottom = 9
 
 [node name="Rank" type="Label" parent="."]
 layout_mode = 2
-text = "Patitodev"
+offset_left = 46.0
+offset_top = 27.0
+offset_right = 116.0
+offset_bottom = 67.0
+text = "1"
 label_settings = SubResource("LabelSettings_qdhqt")
 
 [node name="UserLabel" type="Label" parent="."]
 layout_mode = 2
+offset_left = 117.0
+offset_top = 27.0
+offset_right = 415.0
+offset_bottom = 67.0
 text = "Patitodev"
-label_settings = SubResource("LabelSettings_qdhqt")
+label_settings = SubResource("LabelSettings_e0smp")
 
 [node name="ScoreLabel" type="Label" parent="."]
 layout_mode = 2
+offset_left = 482.0
+offset_top = 27.0
+offset_right = 747.0
+offset_bottom = 67.0
 text = "123123"
 label_settings = SubResource("LabelSettings_qdhqt")
+horizontal_alignment = 2
 
 [node name="WaterConsumedLabel" type="Label" parent="."]
 layout_mode = 2
-text = "123"
-label_settings = SubResource("LabelSettings_qdhqt")
+offset_left = 49.0
+offset_top = 121.0
+offset_right = 661.0
+offset_bottom = 151.0
+text = "Water dranked 21312ml"
+label_settings = SubResource("LabelSettings_l8w71")
 
 [node name="WaterWastedLabel" type="Label" parent="."]
 layout_mode = 2
-text = "123"
-label_settings = SubResource("LabelSettings_qdhqt")
+offset_left = 49.0
+offset_top = 78.0
+offset_right = 658.0
+offset_bottom = 104.0
+text = "Water wasted 232434ml"
+label_settings = SubResource("LabelSettings_rppqr")

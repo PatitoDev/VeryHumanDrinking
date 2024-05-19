@@ -57,3 +57,4 @@ func _on_area_2d_body_shape_entered(body_rid, body, body_shape_index, local_shap
 
 func _on_flow_control_panel_spawn_water():
 	faucet.onSpawnWater();
+	waterWasted += 1;

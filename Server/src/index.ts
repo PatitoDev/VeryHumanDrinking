@@ -20,7 +20,8 @@ app.post('/entry', (req, res) => {
     newEntryHandler(entry);
     res.status(201).send();
   }
-  catch {
+  catch(e) {
+    console.log('bad request', e);
     res.status(400).send();
   }
 })
@@ -28,10 +29,10 @@ app.post('/entry', (req, res) => {
 app.get('/entry', (req, res) => {
 try {
     const leaderboard = getLeaderboardHandler();
-    console.log(leaderboard);
     res.status(200).send(leaderboard);
   }
-  catch {
+  catch(e) {
+    console.log('bad request', e);
     res.status(400).send();
   }
 })
