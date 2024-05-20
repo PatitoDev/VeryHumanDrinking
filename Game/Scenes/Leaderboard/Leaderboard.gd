@@ -1,7 +1,5 @@
 extends Node2D
 
-var apiUrl = 'http://localhost:8989';
-
 const entryScene = preload("res://UI/LeaderboardEntry/LeaderboardEntry.tscn");
 @onready var leaderboardEntriesContainer = $CanvasLayer/LeaderboardPanel/ScrollContainer/VBoxContainer;
 @onready var getLeaderboardHttpRequest = $CanvasLayer/LeaderboardPanel/GetLeaderboardHttpRequest;
@@ -12,7 +10,7 @@ func _on_back_btn_pressed():
 	self.queue_free();
 
 func _ready():
-	getLeaderboardHttpRequest.request(apiUrl + '/entry', [], HTTPClient.METHOD_GET);
+	getLeaderboardHttpRequest.request(Global.API_URL, [], HTTPClient.METHOD_GET);
 
 func _on_get_leaderboard_http_request_request_completed(result, response_code, headers, body):
 	var json = JSON.parse_string(body.get_string_from_utf8())

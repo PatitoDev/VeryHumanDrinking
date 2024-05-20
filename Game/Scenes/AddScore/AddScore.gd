@@ -2,8 +2,6 @@ extends Node2D
 
 const leaderboardScene = preload("res://Scenes/Leaderboard/Leaderboard.tscn")
 
-var apiUrl = 'http://localhost:8989';
-
 @onready var playerNameInput = $CanvasLayer/ScorePanel/PlayerNameInput;
 @onready var httpRequest = $CanvasLayer/ScorePanel/PostEntryHttpRequest;
 
@@ -42,7 +40,7 @@ func _on_add_to_leadearboard_btn_pressed():
 		'waterWasted': waterWasted,
 		'waterConsumed': waterConsumed
 	}
-	httpRequest.request(apiUrl + '/entry', ['Content-Type: application/json'],
+	httpRequest.request(Global.API_URL, ['Content-Type: application/json'],
 		HTTPClient.METHOD_POST, 
 		JSON.stringify(payload)
 	);
