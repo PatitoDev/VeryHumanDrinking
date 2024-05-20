@@ -223,6 +223,21 @@ _data = {
 "RESET": SubResource("Animation_y3ghp")
 }
 
+[sub_resource type="Animation" id="Animation_ndclk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_s7trk"]
 resource_name = "gulp"
 step = 0.05
@@ -253,21 +268,6 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_ndclk"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7chyg"]
 _data = {
 "RESET": SubResource("Animation_ndclk"),
@@ -283,7 +283,7 @@ position = Vector2(-43, -39)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_lgvmr")
 autoplay = "default"
-frame_progress = 0.198511
+frame_progress = 0.125079
 
 [node name="OpenMouthTrigger" type="Area2D" parent="."]
 position = Vector2(5, 6)
@@ -339,6 +339,7 @@ libraries = {
 }
 
 [node name="GluGluSFXPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = 9.0
 bus = &"SFX"
 
 [node name="OpenMouthSFXPlayer" type="AudioStreamPlayer" parent="."]

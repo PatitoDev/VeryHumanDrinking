@@ -18,10 +18,12 @@ func _on_volume_slider_value_changed(value):
 	AudioServer.set_bus_mute(masterIndex, value <= -12);
 
 func _on_continue_btn_pressed():
+	Global.playUISFX();
 	canvas.visible = false;
 	get_tree().paused = false;
 
 func _on_main_menu_btn_pressed():
+	Global.playUISFX();
 	canvas.visible = false;
 	get_tree().paused = false;
 	get_parent().get_parent().get_node('MainMenu').playMusic();

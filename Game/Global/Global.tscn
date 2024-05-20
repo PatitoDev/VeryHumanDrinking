@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://drje46ny3igo1"]
+
+[ext_resource type="Script" path="res://Global/Global.gd" id="1_0nye1"]
+[ext_resource type="AudioStream" uid="uid://dvg8vpmv1bo3x" path="res://Audio/end.wav" id="2_v23qh"]
+[ext_resource type="AudioStream" uid="uid://bjal3orltivet" path="res://Audio/ui.wav" id="3_jeim6"]
+
+[node name="Global" type="Node2D"]
+script = ExtResource("1_0nye1")
+
+[node name="EndGameSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_v23qh")
+
+[node name="UISfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_jeim6")

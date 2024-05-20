@@ -46,6 +46,7 @@ func _process(delta):
 		end();
 
 func end():
+	Global.playEndSFX();
 	var scene = addScoreScene.instantiate();
 	get_tree().root.add_child(scene);
 	scene.setScore(waterWasted, waterConsumed);

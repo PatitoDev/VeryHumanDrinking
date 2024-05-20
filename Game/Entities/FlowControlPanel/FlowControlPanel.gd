@@ -52,7 +52,7 @@ func setWaterFlow(value: int):
 	var emitTime = pow(time / 500.0, 2);
 	waterFlowTimer.wait_time = max(emitTime, 0.0001);
 	
-	audioSfxWaterFlowing.volume_db = pow((waterFlow / 10), 2) / 50;
+	audioSfxWaterFlowing.volume_db = (pow((waterFlow / 10), 2) / 50) - 3;
 	
 	if waterFlow > 10:
 		if waterFlowTimer.is_stopped():

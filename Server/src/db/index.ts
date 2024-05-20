@@ -18,6 +18,11 @@ const addEntry = (entry: LeadearboardEntry) => {
   save();
 }
 
+const deleteEntry = (id: string) => {
+  data = data.filter((item) => item.id !== id);
+  save();
+}
+
 const getAll = () => {
   return data;
 }
@@ -27,6 +32,7 @@ const save = () => {
 }
 
 export const db = {
+  deleteEntry,
   addEntry,
   getAll
 }

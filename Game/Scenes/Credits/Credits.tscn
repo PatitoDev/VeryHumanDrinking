@@ -29,6 +29,7 @@ font_color = Color(1, 1, 0.623529, 1)
 
 [node name="Credits" type="Node2D"]
 script = ExtResource("1_uv60t")
+metadata/_edit_vertical_guides_ = [132.0]
 
 [node name="Bg2" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
@@ -36,60 +37,59 @@ texture = ExtResource("1_aah7y")
 centered = false
 
 [node name="Label" type="Label" parent="."]
-offset_left = 131.0
+offset_left = 132.0
 offset_top = 186.0
-offset_right = 333.0
+offset_right = 334.0
 offset_bottom = 237.0
 text = "Credits
 "
 label_settings = SubResource("LabelSettings_m0x6g")
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 134.0
+offset_left = 132.0
 offset_top = 292.0
-offset_right = 336.0
+offset_right = 438.0
 offset_bottom = 343.0
 text = "Developer & Artist"
 label_settings = SubResource("LabelSettings_raky5")
 
 [node name="Label3" type="Label" parent="."]
-offset_left = 137.0
+offset_left = 132.0
 offset_top = 337.0
-offset_right = 443.0
+offset_right = 657.0
 offset_bottom = 388.0
 text = "Patitodev - twitch.tv/patitodev"
 label_settings = SubResource("LabelSettings_hoygu")
 
 [node name="Label4" type="Label" parent="."]
-offset_left = 134.0
+offset_left = 132.0
 offset_top = 397.0
-offset_right = 440.0
+offset_right = 438.0
 offset_bottom = 448.0
 text = "Music & SFXs"
 label_settings = SubResource("LabelSettings_raky5")
 
 [node name="Label6" type="Label" parent="."]
-offset_left = 134.0
-offset_top = 506.0
-offset_right = 1100.0
-offset_bottom = 571.0
-text = "Moral support and constant criticism in the form of twitch
-chat spam"
+offset_left = 132.0
+offset_top = 511.0
+offset_right = 1098.0
+offset_bottom = 542.0
+text = "With the moral support of twitch chat"
 label_settings = SubResource("LabelSettings_raky5")
 
 [node name="Label5" type="Label" parent="."]
-offset_left = 137.0
+offset_left = 132.0
 offset_top = 442.0
-offset_right = 708.0
+offset_right = 747.0
 offset_bottom = 493.0
 text = "Anncinnamon - twitch.tv/anncinnamon"
 label_settings = SubResource("LabelSettings_hoygu")
 
 [node name="Label7" type="Label" parent="."]
 offset_left = 133.0
-offset_top = 597.0
+offset_top = 562.0
 offset_right = 443.0
-offset_bottom = 1017.0
+offset_bottom = 982.0
 text = "silverknight3
 ssmatiuri
 SaintCaleuche
@@ -106,9 +106,9 @@ label_settings = SubResource("LabelSettings_hoygu")
 
 [node name="Label8" type="Label" parent="."]
 offset_left = 512.0
-offset_top = 598.0
+offset_top = 563.0
 offset_right = 807.0
-offset_bottom = 1006.0
+offset_bottom = 971.0
 text = "andresaltv
 MatxerOn
 Pierito95RsNg

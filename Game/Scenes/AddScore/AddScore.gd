@@ -32,7 +32,7 @@ func _on_player_name_input_text_changed():
 	$CanvasLayer/ScorePanel/BtnDisabledImg.visible = !isValid;
 
 func _on_add_to_leadearboard_btn_pressed():
-	print('pressed');
+	Global.playUISFX();
 	if (!isValid):
 		return;
 		
@@ -53,6 +53,7 @@ func _on_post_entry_http_request_request_completed(result, response_code, header
 	self.queue_free();
 
 func _on_skip_btn_pressed():
+	Global.playUISFX();
 	var scene = leaderboardScene.instantiate();
 	get_tree().root.add_child(scene);
 	self.queue_free();
